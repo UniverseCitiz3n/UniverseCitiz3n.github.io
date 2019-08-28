@@ -4,4 +4,4 @@ title: "About"
 ---
 
 ![That's me]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Arcontar.jpg)
-[Centrum Historii Zajezdnia](www.zajezdnia.org)
+[Centrum Historii Zajezdnia](https://www.zajezdnia.org)
