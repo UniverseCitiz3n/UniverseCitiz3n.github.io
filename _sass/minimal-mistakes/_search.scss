@@ -48,13 +48,8 @@
     animation-delay: 0.15s;
 
     @include breakpoint($x-large) {
-      max-width: $max-width;
+      max-width: $x-large;
     }
-
-  }
-
-  &__form {
-    background-color: transparent;
   }
 
   .search-input {
@@ -124,7 +119,6 @@
   font-style: normal;
   text-decoration: underline;
 }
-
 .archive__item-excerpt .ais-Highlight {
   color: $primary-color;
   font-style: normal;

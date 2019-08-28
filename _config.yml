@@ -12,17 +12,17 @@
 
 #theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "dark" # "air", "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "mint" # "air", "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Mateusz Czerniawski"
+title                    : "Maciej Horbacz"
 title_separator          : "-"
-name                     : "Mateusz Czerniawski"
-description              : "A Power Knight Journey."
-url                      : "https://www.mczerniawski.pl" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+name                     : "Maciej Horbacz"
+description              : "My ideas and solutions to sysadmin problems"
+url                      : "https://universecitiz3n.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "mczerniawski/mczerniawski.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "UniverseCitiz3n/mhorbacz.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : /assets/logo.png #  path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -83,7 +83,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : Arcontar
+  username               : UniverseCitiz3n
 facebook:
   username               :
   app_id                 :
@@ -106,43 +106,43 @@ analytics:
 
 # Site Author
 author:
-  name             : "Mateusz Czerniawski"
-  avatar           : # "/assets/images/aboutme/Mateusz.jpg"
-  bio              : "A PowerShell Knight Journey."
+  name             : "Hi"
+  avatar           : # "/assets/images/aboutme/profile.jpg"
+  bio              : "On this blog you will find posts with my ideas and solutions to problems which I bump into as an sysadmin. <br>My main field of expertise are Microsoft products and handling them with Powershell! "
   location         : "Poland"
-  email            : # mczerniawski@arcon.net.pl 
+  email            : # maciej.horbacz@gmail.com 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      #url: mailto:mczerniawskI@arcon.net.pl 
+      #url: mailto:maciej.horbacz@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/Arcontar"
+      url: "https://twitter.com/UniverseCitiz3n"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/mczerniawski"
+      url: "https://github.com/UniverseCitiz3n"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/galaxy_spin/"
 
 # Site Footer
 footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/Arcontar"
+      url: "https://twitter.com/UniverseCitiz3n"
     - label: "Facebook"
       icon: "fab fa-fw fa-facebook-square"
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/mczerniawski"
+      url: "https://github.com/UniverseCitiz3n"
       # url:
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
