@@ -1,0 +1,18 @@
+# main links
+main:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
+  #- title: 'Arcon'
+  #  url: /arcon/
+  - title: "PPoSh"
+    url: /pposh/
+  #- title: "Talks"
+  #  url: /talks/
+  - title: "Archive Posts"
+    url: /year-archive/
+  - title: "Tags"
+    url: /tags/
+  - title: "Categories"
+    url: /categories/
