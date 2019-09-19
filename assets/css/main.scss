@@ -6,3 +6,7 @@
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@font-face {
+    font-family:"Cascadia Code";
+    src: url("{{ site.url }}{{ site.baseurl }}/assets/css/Cascadia.ttf") format("truetype");
+  }
