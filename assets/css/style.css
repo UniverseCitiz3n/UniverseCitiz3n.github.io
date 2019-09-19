@@ -3,6 +3,6 @@
 
 @import "{{ site.theme }}";
 @font-face {
-    font-family:"Cascadia COde";
+    font-family:"Cascadia Code";
     src: url("{{ site.url }}{{ site.baseurl }}/assets/css/Cascadia.ttf") format("truetype");
   }
