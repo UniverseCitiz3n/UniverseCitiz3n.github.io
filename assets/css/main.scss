@@ -9,4 +9,8 @@
 @font-face {
     font-family:"Cascadia Code";
     src: url("{{ site.url }}{{ site.baseurl }}/assets/css/Cascadia.ttf") format("truetype");
+  };
+  @font-face {
+    font-family:"Lato";
+    src: url("{{ site.url }}{{ site.baseurl }}/assets/css/Lato-Regular.ttf") format("truetype");
   }
