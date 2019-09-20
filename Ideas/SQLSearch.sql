@@ -1,0 +1,15 @@
+DECLARE @ColumnName VARCHAR(MAX) = 'CalendarID'
+DECLARE @ColumnValue VARCHAR(MAX) = '1'
+DECLARE @query VARCHAR(MAX) = ''
+
+ 
+
+
+SELECT @query += 'SELECT ''' + TABLE_SCHEMA + ''' as TABLE_SCHEMA, ''' + TABLE_NAME + ''' AS TABLE_NAME, *  FROM ' + TABLE_SCHEMA + '.' + TABLE_NAME  + ' WHERE ' + @ColumnName + ' = ' + @ColumnValue + ' '
+FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME in (SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE') 
+AND COLUMN_NAME = @ColumnName
+
+ 
+
+PRINT @query
+exec (@query)
