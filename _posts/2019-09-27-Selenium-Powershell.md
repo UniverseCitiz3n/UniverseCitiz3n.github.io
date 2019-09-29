@@ -12,9 +12,6 @@ tags:
 
 excerpt: Selenium is framework for testing web applications..but I'm using it for automate things where API is no good
 
-layout: default
-comments: true
-# other options
 ---
 # Intro
 
@@ -64,7 +61,6 @@ You can see in this code that I'm creating two objects:
 
  - ChromeDriver
  this creates new instance of webdriver the moment you create object from this class your browser will come to life ⚡️.
-
 # Things you can do
 
 Making you browser open specified site comes to this
