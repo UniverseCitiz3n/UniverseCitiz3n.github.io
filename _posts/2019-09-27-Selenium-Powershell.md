@@ -14,7 +14,7 @@ excerpt: Selenium is framework for testing web applications..but I'm using it fo
 ---
 # Into
 
-Nobody likes clicking on over and over the same thing just to get your job done. That is why I've started to automate things 😄. Everything goes smoothly if service provider gives you tools like <span style="color:yellow">APIs</span>, <span style="color:blue">Powershell</span> cmdlets, <span style="color:green">WebHooks</span>, etc. But how to get things done on website if those tools are **no good**? You can use Selenium! And what is Selenium? It is code driven testing framework which automates browser. With it help I were able to speed-up new project creation process in our company Jira which in this case (our Jira's version is somewhere 6) I were not able to use REST API.
+Nobody likes clicking on over and over the same thing just to get your job done. That is why I've started to automate things 😄. Everything goes smoothly if service provider gives you tools like <span style="color:orange">APIs</span>, <span style="color:blue">Powershell cmdlets</span>, <span style="color:green">WebHooks</span>, etc. But how to get things done on website if those tools are **no good**? You can use Selenium! And what is Selenium? It is code driven testing framework which automates browser. With it help I were able to speed-up new project creation process in our company Jira which in this case (our Jira's version is somewhere 6) I were not able to use REST API.
 
 Let me reveal some of this magic ✨
 # Getting started
@@ -36,7 +36,6 @@ if ($env:Path -notcontains ";$PathToFolder" ) {
 ```
 
 Done.
-
 Now you can lunch Selenium driven browser from your Powershell console! Like that:
 
 ``` powershell
@@ -48,12 +47,13 @@ $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChromeOptions)
 $ChromeDriver.Url = 'https://universecitiz3n.github.io'
 ```
 
-[demo]({{ site.url }}{{ site.baseurl }}/assets/images/posts/demo.gif)
+![demo]({{ site.url }}{{ site.baseurl }}/assets/images/posts/demo.gif)
+
 You can see in this code that I'm creating two objects:
  - ChromeOptions
  this is a class which helps you set your browser preferences. Fullscreen is nice and second to save few lines of code when you bump into:
 
- [cert]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cert.jpg)
+![cert]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cert.jpg)
 
 <span style="color:red">Yeah be sure that you trust site even though its cert expired!!</span>
 
@@ -69,9 +69,9 @@ $ChromeDriver.Url = 'https://yourwebsite.com'
 ```
 
 **You must remember to put link in https:// format**
-
 How about clicking on stuff? Well you need to know ID of element or its position. Your best friend for that is **Inspect** option provided by browser.
-[inspect]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect.jpg)
+
+![inspect]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect.jpg)
 
 One you have opened **Inspect** tab you will be able to identify web objects and with right Selenium command manipulate them!
 These are available methods within webdriver that you can use
@@ -91,7 +91,8 @@ $ChromeDriver.FindElementByTagName('')
 ```
 
 If website is well designed you should be able to get IDs of objects and user **FindElementById**
-[IDs]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect3.jpg)
+
+![IDs]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect3.jpg)
 
 In this case ID for **Log in** button is **wp-submit** and to click it just run code like:
 
@@ -100,7 +101,8 @@ $ChromeDriver.FindElementById('wp-submit').Click()
 ```
 
 Now, what if some element has no ID? For me **XPath** works the best. Getting XPath value is simple as
-[XPath]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect4.jpg)
+
+![XPath]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect4.jpg)
 
 and now you can easily click on anything! Just like that:
 
@@ -108,5 +110,5 @@ and now you can easily click on anything! Just like that:
 $ChromeDriver.FindElementByXPath('//*[@id="main"]/div[2]/div[1]/article/h2/a').Click()
 ```
 
-[awesome]({{ site.url }}{{ site.baseurl }}/assets/images/posts/awesome.jpg)
+![awesome]({{ site.url }}{{ site.baseurl }}/assets/images/posts/awesome.jpg)
 
