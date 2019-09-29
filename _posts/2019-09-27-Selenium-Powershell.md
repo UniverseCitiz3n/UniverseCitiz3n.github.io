@@ -114,5 +114,29 @@ $ChromeDriver.FindElementByXPath('//*[@id="main"]/div[2]/div[1]/article/h2/a').C
 
 ![awesome]({{ site.url }}{{ site.baseurl }}/assets/images/posts/awesome.jpg)
 
+Next big thing is to fill boxes with your text and again what you should start with is to fetch ID or XPath of textbox. If you got this you can pass you text to box simply with:
 
-## Sending text to textbox
+``` powershell
+$ChromeDriver.FindElementsById('user_login').SendKeys('yourlogin@domain.com')
+```
+
+![login]({{ site.url }}{{ site.baseurl }}/assets/images/posts/login.jpg)
+
+Isn't it great? 😁<br>
+I hope that I've opened new door of possibilities before you will be brave enough to fiddle with things that Selenium brings! Manual clicking with mouse is boring! 😎
+# Pro tip
+
+Be sure after running scripts to properly clean your workspace. To do that paste at the end of your script those
+
+``` powershell
+$ChromeDriver.close()
+$ChromeDriver.quit()
+```
+
+If you won't do that browser will not correctly dump temporary files which are created after staring webdriver session.<br>
+You can find those files in **%LocalAppData%\Temp**
+
+![trash]({{ site.url }}{{ site.baseurl }}/assets/images/posts/trash.jpg)
+
+See you in next! 😉 🧠
+

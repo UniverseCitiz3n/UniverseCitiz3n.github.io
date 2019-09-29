@@ -9,15 +9,6 @@ $ChOptions.AcceptInsecureCertificates = $True
 $ChOptions.AddArgument('start-maximized')
 $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChOptions)
 #$ChromeDriver.Manage().Window.Maximize()
-$ChromeDriver.Url = 'https://universecitiz3n.github.io'
-$ChromeDriver.FindElementById('wp-submit').Click()
-$ChromeDriver.FindElementByClassName
-$ChromeDriver.FindElementByCssSelector
-$ChromeDriver.FindElementById
-$ChromeDriver.FindElementByLinkText
-$ChromeDriver.FindElementByName
-$ChromeDriver.FindElementByPartialLinkText
-$ChromeDriver.FindElementByTagName
-$ChromeDriver.FindElementByXPath
-
-$ChromeDriver.FindElementByXPath('//*[@id="main"]/div[2]/div[1]/article/h2/a').Click()
+$ChromeDriver.Url = 'https://powershell.org'
+$ChromeDriver.FindElementsById('user_login').SendKeys('yourlogin@domain.com')
+$ChromeDriver.FindElementsById('search').Clear()
