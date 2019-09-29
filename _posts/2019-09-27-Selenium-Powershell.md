@@ -19,7 +19,7 @@ Nobody likes clicking on over and over the same thing just to get your job done.
 Let me reveal some of this magic ✨
 # Getting started
 
-What you will need is **Webdriver.dll** you can grab some from [here]({{ site.url }}{{ site.baseurl }}/assets/bins/Selenium) or download directly from [NuGet](https://www.nuget.org/packages/Selenium.WebDriver) and extract it with 7-zip.
+What you will need is **Webdriver.dll** you can grab some from [here](https://github.com/UniverseCitiz3n/UniverseCitiz3n.github.io/tree/master/assets/bins/Selenium) or download directly from [NuGet](https://www.nuget.org/packages/Selenium.WebDriver) and extract it with 7-zip.
 Secondly you will need browser driver. I'm using **Chrome Driver** but there are drivers for Firefox, Opera, Edge, Safari. You can get Chrome driver [here](https://sites.google.com/a/chromium.org/chromedriver/). Lastly after you pick your driver be sure that you have installed browser itself 😅. It's the best to put .dll and .exe in the same folder to which you will be reaching in code.
 
 Time for some code
