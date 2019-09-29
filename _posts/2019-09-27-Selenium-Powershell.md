@@ -12,7 +12,7 @@ tags:
 
 excerpt: Selenium is framework for testing web applications..but I'm using it for automate things where API is no good
 ---
-# Into
+# Intro
 
 Nobody likes clicking on over and over the same thing just to get your job done. That is why I've started to automate things 😄. Everything goes smoothly if service provider gives you tools like <span style="color:orange">APIs</span>, <span style="color:blue">Powershell cmdlets</span>, <span style="color:green">WebHooks</span>, etc. But how to get things done on website if those tools are **no good**? You can use Selenium! And what is Selenium? It is code driven testing framework which automates browser. With it help I were able to speed-up new project creation process in our company Jira which in this case (our Jira's version is somewhere 6) I were not able to use REST API.
 
@@ -60,7 +60,7 @@ You can see in this code that I'm creating two objects:
 
  - ChromeDriver
  this creates new instance of webdriver the moment you create object from this class your browser will come to life ⚡️.
- 
+
 # Things you can do
 
 Making you browser open specified site comes to this
