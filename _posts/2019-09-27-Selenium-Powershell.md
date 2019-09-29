@@ -1,4 +1,7 @@
 ---
+layout: default
+comments: true
+# other options
 title: How to use Selenium via Powershell
 categories:
 
@@ -11,6 +14,7 @@ tags:
     - Automation
 
 excerpt: Selenium is framework for testing web applications..but I'm using it for automate things where API is no good
+
 ---
 # Intro
 
