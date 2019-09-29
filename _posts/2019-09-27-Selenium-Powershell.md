@@ -36,7 +36,11 @@ if ($env:Path -notcontains ";$PathToFolder" ) {
 ```
 
 Done.
-Now you can lunch Selenium driven browser from your Powershell console! Like that:
+Now you can lunch Selenium driven browser from your Powershell console! 
+
+![demo]({{ site.url }}{{ site.baseurl }}/assets/images/posts/demo.gif)
+
+Like that:
 
 ``` powershell
 $ChromeOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
@@ -47,11 +51,9 @@ $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChromeOptions)
 $ChromeDriver.Url = 'https://universecitiz3n.github.io'
 ```
 
-![demo]({{ site.url }}{{ site.baseurl }}/assets/images/posts/demo.gif)
-
 You can see in this code that I'm creating two objects:
  - ChromeOptions
- this is a class which helps you set your browser preferences. Fullscreen is nice and second to save few lines of code when you bump into:
+ this is a class which helps you set your browser preferences. I've declared two options; Fullscreen is nice and second option is to save few lines of code when you bump into:
 
 ![cert]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cert.jpg)
 
@@ -59,8 +61,7 @@ You can see in this code that I'm creating two objects:
 
  - ChromeDriver
  this creates new instance of webdriver the moment you create object from this class your browser will come to life ⚡️
-
- # Things you can do
+# Things you can do
 
 Making you browser open specified site comes to this
 
@@ -68,7 +69,8 @@ Making you browser open specified site comes to this
 $ChromeDriver.Url = 'https://yourwebsite.com'
 ```
 
-**You must remember to put link in https:// format**
+**You must remember to put link in https:// format**.
+
 How about clicking on stuff? Well you need to know ID of element or its position. Your best friend for that is **Inspect** option provided by browser.
 
 ![inspect]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect.jpg)
