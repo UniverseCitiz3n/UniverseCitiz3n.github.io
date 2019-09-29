@@ -19,3 +19,5 @@ $ChromeDriver.FindElementByName
 $ChromeDriver.FindElementByPartialLinkText
 $ChromeDriver.FindElementByTagName
 $ChromeDriver.FindElementByXPath
+
+$ChromeDriver.FindElementByXPath('//*[@id="main"]/div[2]/div[1]/article/h2/a').Click()

@@ -89,4 +89,24 @@ $ChromeDriver.FindElementByName('')
 $ChromeDriver.FindElementByPartialLinkText('')
 $ChromeDriver.FindElementByTagName('')
 ```
-If website is well designed and 
+
+If website is well designed you should be able to get IDs of objects and user **FindElementById**
+[IDs]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect3.jpg)
+
+In this case ID for **Log in** button is **wp-submit** and to click it just run code like:
+
+``` powershell
+$ChromeDriver.FindElementById('wp-submit').Click()
+```
+
+Now, what if some element has no ID? For me **XPath** works the best. Getting XPath value is simple as
+[XPath]({{ site.url }}{{ site.baseurl }}/assets/images/posts/inspect4.jpg)
+
+and now you can easily click on anything! Just like that:
+
+``` powershell
+$ChromeDriver.FindElementByXPath('//*[@id="main"]/div[2]/div[1]/article/h2/a').Click()
+```
+
+[awesome]({{ site.url }}{{ site.baseurl }}/assets/images/posts/awesome.jpg)
+
