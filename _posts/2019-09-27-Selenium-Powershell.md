@@ -54,14 +54,14 @@ $ChromeDriver.Url = 'https://universecitiz3n.github.io'
 ```
 
 You can see in this code that I'm creating two objects:
- - ChromeOptions
+ - ChromeOptions -<br>
  this is a class which helps you set your browser preferences. I've declared two options; Fullscreen is nice and second option is to save few lines of code when you bump into:
 
 ![cert]({{ site.url }}{{ site.baseurl }}/assets/images/posts/cert.jpg)
 
 <span style="color:red">Yeah be sure that you trust site even though its cert expired!!</span>
 
- - ChromeDriver
+ - ChromeDriver -<br>
  this creates new instance of webdriver the moment you create object from this class your browser will come to life ⚡️.
 
 # Things you can do
