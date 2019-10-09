@@ -10,8 +10,9 @@ $ChOptions.AddArgument('start-maximized')
 $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChOptions)
 #$ChromeDriver.Manage().Window.Maximize()
 $ChromeDriver.Url = 'https://www.onlineconverter.com/jpg-to-gif'
-$ChromeDriver.FindElementsById('file').
-Start-Sleep 1
-$ChromeDriver.FindElementsById('user_pass').SendKeys('=K||"|WE^LI$R:Qs')
-Start-Sleep 30
-$ChromeDriver.FindElementsById('wp-submit').Click()
+$ChromeDriver.FindElementsById('file').SendKeys('C:\Temp\14853163_141016446369733_5206568431232995795_o.jpg')
+$ChromeDriver.FindElementById('convert-button').Click()
+
+Start-Sleep 10
+
+$ChromeDriver.FindElementByXPath('//*[@id="convert-message"]/a').Click()

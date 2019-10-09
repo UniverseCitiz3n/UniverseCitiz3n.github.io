@@ -45,7 +45,7 @@ Regarding *captcha* the only way is to pause script until user passes the test.
 
 # Tables on sites
 
-Great example of table which required help of Selenium is permission table in Confluence Spaces.
+Great example of table which required help of Selenium is permission table in Confluence Spaces.<br>
 ![Space]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2019-10-09-2.jpg)
 I were not able to change them using module *ConfluencePS* but thanks to that code it became piece of cake! In this example I'm adding new group to permissions list and ticking checkboxes to resemble Admin permissions
 ```powershell
@@ -67,7 +67,16 @@ You can see that in a loop I'm only clicking boxes where cell number is equal $i
 
 # Files
 
-During my automation journey the need to download and upload files came to me.
+During my automation journey the need to download and upload files was bound to come sooner or later.<br>
+Downloading is easy and there is nothing new, just find *Download* button and click on it!<br>
+Uploading a file 
+```powershell
+$ChromeDriver.FindElementsById('file').SendKeys('C:\Temp\14853163_141016446369733_5206568431232995795_o.jpg')
+$ChromeDriver.FindElementById('convert-button').Click()
+
+Start-Sleep 10
+
+$ChromeDriver.FindElementByXPath('//*[@id="convert-message"]/a').Click()
 
 
 
