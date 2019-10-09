@@ -49,18 +49,23 @@ Great example of table which required help of Selenium is permission table in Co
 ![Space]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2019-10-09-2.jpg)
 I were not able to change them using module *ConfluencePS* but thanks to that code it became piece of cake! In this example I'm adding new group to permissions list and ticking checkboxes to resemble Admin permissions
 ```powershell
+#Adding new group to permissions list
 $ChromeDriver.FindElementById("groups-to-add-autocomplete").SendKeys("Conf_GroupName_Admin")
 Start-Sleep -Milliseconds 500
+#Clicking Add button
 $ChromeDriver.FindElementByXPath('//*[@id="space-tools-body"]/form/div/div[3]/input[2]').Click()
+#Loop ticking checkboxes
 for ($i = 4; $i -le '13'; $i++) {
     $ChromeDriver.FindElementByXPath("//*[@id='gPermissionsTable']/tbody/tr[3]/td[$i]/input").Click()
 }
+#One last checkbox
 $ChromeDriver.FindElementByXPath('//*[@id="gPermissionsTable"]/tbody/tr[3]/td[15]/input').Click()
-
+#Saving all the changes
 $ChromeDriver.FindElementByXPath('//*[@id="space-tools-body"]/form/div/div[9]/input[1]').Click()
 ```
 You can see that in a loop I'm only clicking boxes where cell number is equal $i. I've checked that first box which interests me has number 4 and I need to check every box until 13 and then box 15. At the end don't forget to *Save all* changes 😉
 
+# Files
 
 
 
