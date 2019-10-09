@@ -9,6 +9,9 @@ $ChOptions.AcceptInsecureCertificates = $True
 $ChOptions.AddArgument('start-maximized')
 $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChOptions)
 #$ChromeDriver.Manage().Window.Maximize()
-$ChromeDriver.Url = 'https://powershell.org'
-$ChromeDriver.FindElementsById('user_login').SendKeys('yourlogin@domain.com')
-$ChromeDriver.FindElementsById('search').Clear()
+$ChromeDriver.Url = 'https://powershell.org/wp-login.php'
+$ChromeDriver.FindElementsById('user_login').SendKeys($creds.Password)
+Start-Sleep 1
+$ChromeDriver.FindElementsById('user_pass').SendKeys('=K||"|WE^LI$R:Qs')
+Start-Sleep 30
+$ChromeDriver.FindElementsById('wp-submit').Click()
