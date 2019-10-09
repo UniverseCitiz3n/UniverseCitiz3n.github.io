@@ -42,15 +42,15 @@ Start-Sleep 30 #Wait for user to pass captcha
 $ChromeDriver.FindElementsById('wp-submit').Click()
 ```
 
-I've created *PSCredential* variable and to be able to fill in password field we need to decipher it. Without those steps you will be entering *System. Security. SecureString* which obviously is not your password, or is it? 🤔<br> 
-Regarding *captcha* the only way is to pause script until user passes the test.
+I've created **PSCredential** variable and to be able to fill in password field we need to decipher it. Without those steps you will be entering **System.Security.SecureString** which obviously is not your password, or is it? 🤔<br> 
+Regarding **captcha** the only way is to pause script until user passes the test.
 # Tables on sites
 
 Great example of table which required help of Selenium is permission table in Confluence Spaces.<br>
 
 ![Space]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2019-10-09-2.jpg)
 
-I were not able to change them using module *ConfluencePS* but thanks to that code it became piece of cake! In this example I'm adding new group to permissions list and ticking checkboxes to resemble Admin permissions
+I were not able to change them using module **ConfluencePS** but thanks to that code it became piece of cake! In this example I'm adding new group to permissions list and ticking checkboxes to resemble Admin permissions
 
 ``` powershell
 #Adding new group to permissions list
@@ -68,11 +68,11 @@ $ChromeDriver.FindElementByXPath('//*[@id="gPermissionsTable"]/tbody/tr[3]/td[15
 $ChromeDriver.FindElementByXPath('//*[@id="space-tools-body"]/form/div/div[9]/input[1]').Click()
 ```
 
-You can see that in a loop I'm only clicking boxes where cell number is equal $i. I've checked that first box which interests me has number 4 and I need to check every box until 13 and then box 15. At the end don't forget to *Save all* changes 😉
+You can see that in a loop I'm only clicking boxes where cell number is equal $i. I've checked that first box which interests me has number 4 and I need to check every box until 13 and then box 15. At the end don't forget to **Save all** changes 😉
 # Files
 
 During my automation journey the need to download and upload files was bound to come sooner or later.<br>
-Downloading is easy and there is nothing new, just find *Download* button and click on it!<br>
+Downloading is easy and there is nothing new, just find **Download** button and click on it!<br>
 Uploading a file took me a some time to figure out but it turned out easy too!
 
 ``` powershell
@@ -82,7 +82,7 @@ $ChromeDriver.FindElementsById('file').SendKeys('C:\Temp\14853163_14101644636973
 $ChromeDriver.FindElementById('convert-button').Click()
 ```
 
-Trick to that was just to send file path to *upload* element on website.
+Trick to that was just to send file path to **upload** element on website.
 # Summary
 
 I hope that those few use cases will help you in feeling Selenium vibe and you will be able to apply them in your automation tasks!<br>
