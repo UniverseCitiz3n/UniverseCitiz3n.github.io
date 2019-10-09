@@ -42,7 +42,7 @@ Start-Sleep 30 #Wait for user to pass captcha
 $ChromeDriver.FindElementsById('wp-submit').Click()
 ```
 
-I've created PSCredential variable and to be able to fill in password field we need to decipher it. Without those steps you will be entering *System. Security. SecureString* which obviously is not your password, or is it? 🤔<br> 
+I've created *PSCredential* variable and to be able to fill in password field we need to decipher it. Without those steps you will be entering *System. Security. SecureString* which obviously is not your password, or is it? 🤔<br> 
 Regarding *captcha* the only way is to pause script until user passes the test.
 # Tables on sites
 
