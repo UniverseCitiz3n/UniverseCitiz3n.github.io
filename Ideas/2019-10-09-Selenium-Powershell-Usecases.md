@@ -47,8 +47,15 @@ Regarding *captcha* the only way is to pause script until user passes the test.
 
 Great example of table which required help of Selenium is permission table in Confluence Spaces.
 ![Space]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2019-10-09-2.jpg)
-
-
+I were not able to change them using module *ConfluencePS* but thanks to that code it became piece of cake! In this example I'm adding new group to permissions list and ticking checkboxes to resemble Admin permissions
+```powershell
+$ChromeDriver.FindElementById("groups-to-add-autocomplete").SendKeys("Conf_$TribeKey$SpaceKey`_$Tribe`_$SpaceName`_Admin")
+            Start-Sleep -Milliseconds 500
+            $ChromeDriver.FindElementByXPath('//*[@id="space-tools-body"]/form/div/div[3]/input[2]').Click()
+            for ($i = 4; $i -le '13'; $i++) {
+                $ChromeDriver.FindElementByXPath("//*[@id='gPermissionsTable']/tbody/tr[3]/td[$i]/input").Click()
+            }
+```
 
 
 
