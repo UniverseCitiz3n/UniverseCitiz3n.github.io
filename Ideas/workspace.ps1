@@ -9,8 +9,8 @@ $ChOptions.AcceptInsecureCertificates = $True
 $ChOptions.AddArgument('start-maximized')
 $ChromeDriver = New-Object OpenQA.Selenium.Chrome.ChromeDriver($ChOptions)
 #$ChromeDriver.Manage().Window.Maximize()
-$ChromeDriver.Url = 'https://powershell.org/wp-login.php'
-$ChromeDriver.FindElementsById('user_login').SendKeys($creds.Password)
+$ChromeDriver.Url = 'https://www.onlineconverter.com/jpg-to-gif'
+$ChromeDriver.FindElementsById('file').
 Start-Sleep 1
 $ChromeDriver.FindElementsById('user_pass').SendKeys('=K||"|WE^LI$R:Qs')
 Start-Sleep 30

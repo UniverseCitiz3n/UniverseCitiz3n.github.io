@@ -67,7 +67,7 @@ You can see that in a loop I'm only clicking boxes where cell number is equal $i
 
 # Files
 
-
+During my automation journey the need to download and upload files came to me.
 
 
 
