@@ -64,7 +64,7 @@ Let's put it to the test and create custom profile which will bind device to Act
 
 This how this xml looks inside. I've made changes so that if you want to use it in you organization just copy it and fill the 'gaps'
 
-```xml
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -178,3 +178,18 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 </dict>
 </plist>
 ```
+
+And as a result I got:
+
+![ad]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-6.png)
+
+![ad1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-7.png)
+
+![ad2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-8.png)
+
+# Summary
+
+$19.99 was very well spent money! Thanks to that I can prepare desired configuration on macServer, export it to xml file, upload it to Intune. At this moment I've not tested all of the option and how will they apply but I hope high hopes in this method.
+
+See you in next! 😉 🧠
+
