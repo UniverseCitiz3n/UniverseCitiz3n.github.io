@@ -26,7 +26,7 @@ At the moment when some Mac devices started to appear at my company we decided t
 
 Once you buy it just install it on management device, configure some stuff and you are ready enroll your devices. Customizing management profiles is piece of cake 🍰. Variety of options is astonishing!
 
-![options]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-1.jpg)
+![options]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-1.jpg)
 
 and many more!
 
@@ -38,11 +38,11 @@ So we did binding to AD using macServer. What is required:
 
 This is how it looks:
 
-![bind1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-2.jpg)
+![bind1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-2.jpg)
 
 and for administrative rights on device configure this tab:
 
-![bind2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-3.jpg)
+![bind2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-3.jpg)
 
 all set!
 
@@ -52,7 +52,7 @@ But this is not what you came for, right?
 
 Time came to look into Intune capabilities once again. At first glance I was disappointed but then I had an idea 💡! What are those custom profiles? I need to upload some file... Maybe something like this:
 
-![profile]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-4.jpg)
+![profile]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-4.jpg)
 
 Bingo 🥳
 
@@ -60,7 +60,7 @@ So it looks like I can do everything what macServer allows just by downloading p
 
 Let's put it to the test and create custom profile which will bind device to Active Directory!
 
-![profile2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-5.jpg)
+![profile2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-5.jpg)
 
 This how this xml looks inside. I've made changes so that if you want to use it in you organization just copy it and fill the 'gaps'
 
@@ -181,15 +181,15 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 
 And as a result I got:
 
-![ad]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-6.png)
+![ad]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-6.png)
 
-![ad1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-7.png)
+![ad1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-7.png)
 
-![ad2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-8.png)
+![ad2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-8.png)
 
 # Summary
 
-$19.99 was very well spent money! Thanks to that I can prepare desired configuration on macServer, export it to xml file, upload it to Intune. At this moment I've not tested all of the option and how will they apply but I hope high hopes in this method.
+$19.99 was very well spent money! Thanks to that I can prepare desired configuration on macServer, export it to xml file, upload it to Intune. At this moment I've not tested all of the options and how will they apply but I hope high hopes in this method.
 
 See you in next! 😉 🧠
 
