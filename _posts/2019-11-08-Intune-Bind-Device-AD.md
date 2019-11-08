@@ -86,8 +86,8 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<true/>
 			<key>ADDomainAdminGroupList</key>
 			<array>
-				<string>your.domain\RemoteAccess-macOS</string>
-				<string>your.domain\{{serialnumber}}-Admins</string>
+				<string>yourdomain.com\RemoteAccess-macOS</string>
+				<string>yourdomain.com\{{serialnumber}}-Admins</string>
 			</array>
 			<key>ADDomainAdminGroupListFlag</key>
 			<true/>
@@ -108,7 +108,7 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<key>ADNamespaceFlag</key>
 			<true/>
 			<key>ADOrganizationalUnit</key>
-			<string>OU=Workstations,OU=Computers,DC=your.domain,DC=com</string>
+			<string>OU=Workstations,OU=Computers,DC=yourdomain,DC=com</string>
 			<key>ADPacketEncrypt</key>
 			<string>allow</string>
 			<key>ADPacketEncryptFlag</key>
@@ -118,7 +118,7 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<key>ADPacketSignFlag</key>
 			<true/>
 			<key>ADPreferredDCServer</key>
-			<string>your.domain.com</string>
+			<string>yourdomain.com</string>
 			<key>ADPreferredDCServerFlag</key>
 			<true/>
 			<key>ADRestrictDDNSFlag</key>
@@ -138,15 +138,15 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<key>ClientID</key>
 			<string>%ComputerName%</string>
 			<key>HostName</key>
-			<string>your.domain.com</string>
+			<string>yourdomain.com</string>
 			<key>Password</key>
 			<string>PASSWORD</string>
 			<key>PayloadDisplayName</key>
-			<string>Directory (your.domain.com</string>
+			<string>Directory (yourdomain.com</string>
 			<key>PayloadEnabled</key>
 			<true/>
 			<key>PayloadIdentifier</key>
-			<string>com.apple.mdm.your.domain.com</string>
+			<string>com.apple.mdm.yourdomain.com</string>
 			<key>PayloadType</key>
 			<string>com.apple.DirectoryService.managed</string>
 			<key>PayloadUUID</key>
@@ -162,9 +162,9 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 	<key>PayloadEnabled</key>
 	<true/>
 	<key>PayloadIdentifier</key>
-	<string>com.apple.mdm.your.domain.com.6b79c2a0-c8e2-0137-bbb9-68fef702cbe7</string>
+	<string>com.apple.mdm.yourdomain.com.6b79c2a0-c8e2-0137-bbb9-68fef702cbe7</string>
 	<key>PayloadOrganization</key>
-	<string>your.domain.com</string>
+	<string>yourdomain.com</string>
 	<key>PayloadRemovalDisallowed</key>
 	<false/>
 	<key>PayloadScope</key>
@@ -190,6 +190,10 @@ And as a result I got:
 # Summary
 
 $19.99 was very well spent money! Thanks to that I can prepare desired configuration on macServer, export it to xml file, upload it to Intune. At this moment I've not tested all of the options and how will they apply but I hope high hopes in this method.
+
+Intune allows you to build dynamic strings in configurations - [Configuration Tokens](https://docs.microsoft.com/en-us/intune/apps/app-configuration-policies-use-ios#tokens-used-in-the-property-list).<br>
+I've used one in device domain group for administrator privileges<br>
+**yourdomain.com\{{serialnumber}}-Admins**
 
 See you in next! 😉 🧠
 
