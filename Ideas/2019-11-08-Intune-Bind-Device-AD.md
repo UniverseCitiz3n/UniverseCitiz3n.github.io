@@ -54,4 +54,127 @@ Time came to look into Intune capabilities once again. At first glance I was dis
 
 ![profile]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-4.jpg)
 
-Bingo 🤯
+Bingo 🥳
+
+So it looks like I can do everything what macServer allows just by downloading present configuration applied to end device 🤯.
+
+Let's put it to the test and create custom profile which will bind device to Active Directory!
+
+![profile2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-maos-5.jpg)
+
+This how this xml looks inside. I've made changes so that if you want to use it in you organization just copy it and fill the 'gaps'
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>ADAllowMultiDomainAuth</key>
+			<true/>
+			<key>ADAllowMultiDomainAuthFlag</key>
+			<true/>
+			<key>ADCreateMobileAccountAtLogin</key>
+			<true/>
+			<key>ADCreateMobileAccountAtLoginFlag</key>
+			<true/>
+			<key>ADDefaultUserShell</key>
+			<string>/bin/bash</string>
+			<key>ADDefaultUserShellFlag</key>
+			<true/>
+			<key>ADDomainAdminGroupList</key>
+			<array>
+				<string>your.domain\RemoteAccess-macOS</string>
+				<string>your.domain\{{serialnumber}}-Admins</string>
+			</array>
+			<key>ADDomainAdminGroupListFlag</key>
+			<true/>
+			<key>ADForceHomeLocal</key>
+			<true/>
+			<key>ADForceHomeLocalFlag</key>
+			<true/>
+			<key>ADMapGGIDAttributeFlag</key>
+			<false/>
+			<key>ADMapGIDAttributeFlag</key>
+			<false/>
+			<key>ADMapUIDAttributeFlag</key>
+			<false/>
+			<key>ADMountStyle</key>
+			<string>smb</string>
+			<key>ADNamespace</key>
+			<string>domain</string>
+			<key>ADNamespaceFlag</key>
+			<true/>
+			<key>ADOrganizationalUnit</key>
+			<string>OU=Workstations,OU=Computers,DC=your.domain,DC=com</string>
+			<key>ADPacketEncrypt</key>
+			<string>allow</string>
+			<key>ADPacketEncryptFlag</key>
+			<true/>
+			<key>ADPacketSign</key>
+			<string>allow</string>
+			<key>ADPacketSignFlag</key>
+			<true/>
+			<key>ADPreferredDCServer</key>
+			<string>your.domain.com</string>
+			<key>ADPreferredDCServerFlag</key>
+			<true/>
+			<key>ADRestrictDDNSFlag</key>
+			<false/>
+			<key>ADTrustChangePassIntervalDays</key>
+			<integer>14</integer>
+			<key>ADTrustChangePassIntervalDaysFlag</key>
+			<true/>
+			<key>ADUseWindowsUNCPath</key>
+			<true/>
+			<key>ADUseWindowsUNCPathFlag</key>
+			<true/>
+			<key>ADWarnUserBeforeCreatingMA</key>
+			<false/>
+			<key>ADWarnUserBeforeCreatingMAFlag</key>
+			<true/>
+			<key>ClientID</key>
+			<string>%ComputerName%</string>
+			<key>HostName</key>
+			<string>your.domain.com</string>
+			<key>Password</key>
+			<string>PASSWORD</string>
+			<key>PayloadDisplayName</key>
+			<string>Directory (your.domain.com</string>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.mdm.your.domain.com</string>
+			<key>PayloadType</key>
+			<string>com.apple.DirectoryService.managed</string>
+			<key>PayloadUUID</key>
+			<string>81d771a0-c8e2-0137-bbba-68fef702cbe7</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>UserName</key>
+			<string>USERNAME</string>
+		</dict>
+	</array>
+	<key>PayloadDisplayName</key>
+	<string>Settings for %ComputerName%</string>
+	<key>PayloadEnabled</key>
+	<true/>
+	<key>PayloadIdentifier</key>
+	<string>com.apple.mdm.your.domain.com.6b79c2a0-c8e2-0137-bbb9-68fef702cbe7</string>
+	<key>PayloadOrganization</key>
+	<string>your.domain.com</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>6b79c2a0-c8e2-0137-bbb9-68fef702cbe7</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
+```
