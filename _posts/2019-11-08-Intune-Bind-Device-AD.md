@@ -87,7 +87,7 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<key>ADDomainAdminGroupList</key>
 			<array>
 				<string>yourdomain.com\RemoteAccess-macOS</string>
-				<string>yourdomain.com\{{serialnumber}}-Admins</string>
+				<string>yourdomain.com\{`{serialnumber}}-Admins</string>
 			</array>
 			<key>ADDomainAdminGroupListFlag</key>
 			<true/>
@@ -193,7 +193,7 @@ $19.99 was very well spent money! Thanks to that I can prepare desired configura
 
 Intune allows you to build dynamic strings in configurations - [Configuration Tokens](https://docs.microsoft.com/en-us/intune/apps/app-configuration-policies-use-ios#tokens-used-in-the-property-list).<br>
 I've used one in device domain group for administrator privileges<br>
-**yourdomain.com\{{serialnumber}}-Admins**
+**yourdomain.com\{`{serialnumber}}-Admins**
 
 See you in next! 😉 🧠
 
