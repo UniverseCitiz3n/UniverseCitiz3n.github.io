@@ -142,7 +142,7 @@ This how this xml looks inside. I've made changes so that if you want to use it 
 			<key>Password</key>
 			<string>PASSWORD</string>
 			<key>PayloadDisplayName</key>
-			<string>Directory (yourdomain.com</string>
+			<string>Directory (yourdomain.com)</string>
 			<key>PayloadEnabled</key>
 			<true/>
 			<key>PayloadIdentifier</key>
