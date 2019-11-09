@@ -62,7 +62,16 @@ Let's put it to the test and create custom profile which will bind device to Act
 
 ![profile2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-5.jpg)
 
-This how this xml looks inside. I've made changes so that if you want to use it in you organization just copy it and fill the 'gaps'
+This how this xml looks inside. I've made changes so that if you want to use it in you organization just copy it and fill the 'gaps'in keys:
+ - ADDomainAdminGroupList
+ - ADOrganizationalUnit
+ - ADPreferredDCServer
+ - Password
+ - PayloadDisplayName
+ - PayloadIdentifier
+ - UserName
+ - HostName
+ - PayloadOrganization
 
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
