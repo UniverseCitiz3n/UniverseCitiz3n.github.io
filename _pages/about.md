@@ -16,3 +16,9 @@ Time passed...
 But [Mateusz](https://www.mczerniawski.pl) was more than happy to teach me why and how I should use Powershell! It opened whole new diamention being **sysadmin**. Thanks to his teachings and my determination I was able to get a job in my current company where my wings really spread.
 
 Now I'm learning and using cutting edge technologies to <span style="color:red">automate</span> everyday tasks and repetitive processes in our team. Also I'm giving a hand other teams by showing them those techonologies and help them implement some automation into their duties. 
+
+## Archivements
+
+![Badge1]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png)
+
+![Badge2]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png)
