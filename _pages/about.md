@@ -19,6 +19,6 @@ Now I'm learning and using cutting edge technologies to <span style="color:red">
 
 ## Archivements
 
-![Badge1]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png=352x352)
+![Badge1]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png){:height="352px" width="352px"}
 
 ![Badge2]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png)
