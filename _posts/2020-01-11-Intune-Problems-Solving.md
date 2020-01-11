@@ -38,14 +38,28 @@ Things that will come in handy during troubleshooting:
     - Microsoft/Windows/User Device Registration
 * Systeminfo
 
-# BIOS
+# BIOS update
 
-Check if your device has up-to date BIOS version. Sometimes simple plain update will get things moving. If you are using Dell laptops it is best to use **Dell Command | Update** tool. Version 3.1.0 brought at of nice improvements and features!
+Check if your device has up-to date BIOS version. Sometimes simple plain update will get things moving. If you are using Dell laptops it is best to use **Dell Command | Update** tool. Version 3.1.0 brought at of nice improvements and features! I like using it from Powershell terminal and it is very simple:
+
 ``` powershell
-
-Write-Host 'This is a code'
-
+#Go to location of installation
+cd 'C:\Program Files (x86)\Dell\CommandUpdate'
+#Firstly you need to set bios password if you have one
+./dcu-cli.exe /configure -biospassword="YourBiosPass"
+#Response should be
+'-biospassword' setting updated with value 'YourBiosPass'.
+Execution completed.
+Program exited with return code: 0
+#Updating BIOS
+./dcu-cli.exe /applyupdates -autoSuspendBitLocker
+#Tool will scan device for any drivers that need update. For BIOS update laptop needs to connected to power source and -autoSuspendBitLocker is needed too.
 ```
+after reboot update will be applied.
+
+# Boot mode
+
+In my experince if device 
 
 See you in next! 😉 🧠
 
