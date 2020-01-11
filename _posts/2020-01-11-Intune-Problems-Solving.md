@@ -138,5 +138,7 @@ Description               : Enables or disables the secure boot feature. For sec
 Set-Item DellSmbios:\SecureBoot\SecureBoot -Value Enabled
 ```
 
+Now it is safe to reboot!
+
 See you in next! 😉 🧠
 
