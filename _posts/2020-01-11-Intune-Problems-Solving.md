@@ -92,5 +92,51 @@ MBR2GPT: Before the new system can boot properly you need to switch the firmware
 
 ```
 
+Now with the help of another awesome Dell tool I will be changing boot mode
+
+``` powershell
+Install-Module -Name DellBIOSProvider
+
+Get-Item DellSmbios:\BootSequence\BootList | select *
+
+PSPath                    : DellBIOSProvider\DellSmbiosProv::DellSmbios:\BootSequence\BootList
+PSParentPath              : DellBIOSProvider\DellSmbiosProv::DellSmbios:\BootSequence
+PSChildName               : BootList
+PSDrive                   : DellSmbios
+PSProvider                : DellBIOSProvider\DellSmbiosProv
+PSIsContainer             : False
+Attribute                 : BootList
+CurrentValue              : UEFI BOOT
+ShortDescription          : Boot List Option
+PossibleValues            : {Legacy, Uefi}
+UnsupportedPossibleValues : {}
+Description               : Boot List option determines the boot mode of the system. Uefi - Enables booting to Unified
+                            Extensible Firmware Interface (UEFI) capable operating systems. Legacy (the default) - Ensu
+                            res compatibility with OSes that do not support UEFI. NOTE: Legacy boot mode is not allowed
+                             when secure boot is enabled or Legacy Option ROM is disabled.
+
+Set-Item DellSmbios:\BootSequence\BootList -Value Uefi
+
+Get-Item DellSmbios:\SecureBoot\SecureBoot | select *                                           
+
+PSPath                    : DellBIOSProvider\DellSmbiosProv::DellSmbios:\SecureBoot\SecureBoot
+PSParentPath              : DellBIOSProvider\DellSmbiosProv::DellSmbios:\SecureBoot
+PSChildName               : SecureBoot
+PSDrive                   : DellSmbios
+PSProvider                : DellBIOSProvider\DellSmbiosProv
+PSIsContainer             : False
+Attribute                 : SecureBoot
+CurrentValue              : Enabled
+ShortDescription          : Secure Boot Enable
+PossibleValues            : {Enabled, Disabled}
+UnsupportedPossibleValues : {}
+Description               : Enables or disables the secure boot feature. For secure boot to be enabled, the system need
+                            s to be in UEFI boot mode and the Enable Legacy Option ROMs option needs to be turned off.
+                            CAUTION: Using the Dell Command | PowerShell Provider, you cannot disable this feature. NOT
+                            E: One of the methods of configuring this feature is from the BIOS setup screen.
+
+Set-Item DellSmbios:\SecureBoot\SecureBoot -Value Enabled
+```
+
 See you in next! 😉 🧠
 
