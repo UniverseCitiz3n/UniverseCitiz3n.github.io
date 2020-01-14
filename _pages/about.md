@@ -19,6 +19,6 @@ Now I'm learning and using cutting edge technologies to <span style="color:red">
 
 ## Achievements
 
-![Badge1]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png =50x50)
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png" width="50" height="50">
 
 ![Badge2]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png)
