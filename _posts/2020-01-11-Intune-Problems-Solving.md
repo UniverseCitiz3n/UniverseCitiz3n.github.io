@@ -163,7 +163,13 @@ If previous steps did their magic when you sign-in you should see window:
 
 ![pic3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems3.png)
 
-Click **Yes** and you device should now join AzureAD and after couple of minutes and reboot Intune too. If you bump into error message which says **Your device is already managed**
+Click **Yes** and you device should now join AzureAD and after couple of minutes and reboot Intune too. If you bump into error message which says <span style="color:red">**Your device is already managed by an organization**</span> and you are sure that there are no Work or School accounts added in settings your last resort might be to reinstall Windows 😫. It happened to me once and I found no other resolution... 
+
+# Summary
+
+In modern desktop management I think that it all comes down to health of device TPM and Windows ability to communicate with chip.
+
+I hope that you will find those steps useful. Some cases might work after applying one of the remediation's and others will need to be diagnosed and fixed thoroughly. Unless there are some hardware issues with device I think that all the issues can be fixed 😉
 
 See you in next! 😉 🧠
 
