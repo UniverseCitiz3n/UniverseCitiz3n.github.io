@@ -140,5 +140,30 @@ Set-Item DellSmbios:\SecureBoot\SecureBoot -Value Enabled
 
 Now it is safe to reboot!
 
+# Clear TPM
+
+All above steps are necessary for OS to correctly communicate with Trusted Platform Module chip. If those steps do not apply just try to clear microcontroller. It can be easily done from Windows or in BIOS.🔥🔥**Before proceeding remember to backup your Bitlocker key to safe location**🔥🔥 also I recommend suspending bitlocker because it will allow to automatically save recovery key in TPM again after wiping chip.
+
+``` powershell
+#Run powershell as local admin
+Suspend-BitLocker -MountPoint C #provide OS disk letter
+Clear-Tpm
+#And you are done
+```
+
+# Work and school account
+
+We've gone so far and if device did not join AzureAD at this point we need to give it one last kick-start! If on your device there are Office 365 family apps installed open one of them (it really should not matter but I prefer Word) and go to Account Settings and then click sign out.
+
+![pic1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems.jpg)
+
+![pic2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems2.jpg)
+
+If previous steps did their magic when you sign-in you should see window:
+
+![pic3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems3.png)
+
+Click **Yes** and you device should now join AzureAD and after couple of minutes and reboot Intune too. If you bump into error message which says **Your device is already managed**
+
 See you in next! 😉 🧠
 
