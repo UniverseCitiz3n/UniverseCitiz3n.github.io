@@ -96,7 +96,7 @@ Now with the help of another awesome Dell tool I will be changing boot mode
 
 ``` powershell
 Install-Module -Name DellBIOSProvider
-
+#Check what options are available and how does BIOS objects look like
 Get-Item DellSmbios:\BootSequence\BootList | select *
 
 PSPath                    : DellBIOSProvider\DellSmbiosProv::DellSmbios:\BootSequence\BootList
@@ -114,9 +114,9 @@ Description               : Boot List option determines the boot mode of the sys
                             Extensible Firmware Interface (UEFI) capable operating systems. Legacy (the default) - Ensu
                             res compatibility with OSes that do not support UEFI. NOTE: Legacy boot mode is not allowed
                              when secure boot is enabled or Legacy Option ROM is disabled.
-
+#Setting boot mode to UEFI
 Set-Item DellSmbios:\BootSequence\BootList -Value Uefi
-
+#Checking setting of Secureboot
 Get-Item DellSmbios:\SecureBoot\SecureBoot | select *                                           
 
 PSPath                    : DellBIOSProvider\DellSmbiosProv::DellSmbios:\SecureBoot\SecureBoot
@@ -134,7 +134,7 @@ Description               : Enables or disables the secure boot feature. For sec
                             s to be in UEFI boot mode and the Enable Legacy Option ROMs option needs to be turned off.
                             CAUTION: Using the Dell Command | PowerShell Provider, you cannot disable this feature. NOT
                             E: One of the methods of configuring this feature is from the BIOS setup screen.
-
+#Turn on SecureBoot
 Set-Item DellSmbios:\SecureBoot\SecureBoot -Value Enabled
 ```
 
