@@ -14,9 +14,9 @@ tags:
 excerpt: A few things you should try that might help you 👨‍💻
 
 comments: true
-
+toc: true
+toc_label: Steps to take
 ---
-<!-- toc -->
 
 # Intro
 
