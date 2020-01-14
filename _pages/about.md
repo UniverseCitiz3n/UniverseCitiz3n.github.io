@@ -20,6 +20,6 @@ Now I'm learning and using cutting edge technologies to <span style="color:red">
 
 ## Achievements
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png" width="500" height="500">
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png" width="500" height="500">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png" width="250" height="250">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png" width="250" height="250">
 
