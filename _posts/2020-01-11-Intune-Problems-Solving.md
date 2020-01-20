@@ -142,7 +142,7 @@ Now it is safe to reboot!
 
 # Clear TPM
 
-All above steps are necessary for OS to correctly communicate with Trusted Platform Module chip. If those steps do not apply just try to clear microcontroller. It can be easily done from Windows or in BIOS.🔥🔥**Before proceeding remember to backup your Bitlocker key to safe location**🔥🔥 also I recommend suspending bitlocker because it will allow to automatically save recovery key in TPM again after wiping chip.
+All above steps are necessary for OS to correctly communicate with Trusted Platform Module chip. If those steps do still did not do a thing just try to clear microcontroller. It can be easily done from Windows or in BIOS.🔥🔥**Before proceeding remember to backup your Bitlocker key to safe location**🔥🔥 also I recommend suspending Bitlocker because it will allow to automatically save recovery key in TPM again after wiping chip.
 
 ``` powershell
 #Run powershell as local admin
