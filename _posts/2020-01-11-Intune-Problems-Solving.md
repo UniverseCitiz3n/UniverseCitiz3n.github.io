@@ -22,7 +22,7 @@ toc_label: Table of contents
 
 Happy New Year!🥳 Starting 2020 I promised myself to increase frequency of the posts so fingers crossed that it works out😉
 
-In this post you will find couple of steps that are worth to try if your device is having problems enrolling to Intune. I can't guaranty that will help with every device. That's why you should think of this post as check list of things to keep in mind while debugging workstation.
+In this post you will find couple of steps that are worth to try if your device is having problems enrolling to Intune. I can't guaranty that it will help with every device. That's why you should think of this post as check list of things to keep in mind while debugging workstation.
 
 My environment configuration:
 
@@ -40,7 +40,7 @@ Things that will come in handy during troubleshooting:
 
 # BIOS update
 
-Check if your device has up-to date BIOS version. Sometimes simple plain update will get things moving. If you are using Dell laptops it is best to use **Dell Command \| Update** tool. Version **3.1.0** brought at of nice improvements and features! I like using it from Powershell terminal and it is very simple:
+Check if your device has up-to date BIOS version. Sometimes simple plain update will get things moving. If you are using Dell laptops it is best to use **Dell Command \| Update** tool. Version **3.1.0** brought a lot of nice improvements and features! I like using it from Powershell terminal and it is very simple:
 
 ``` powershell
 #Go to location of installation
@@ -60,7 +60,7 @@ after reboot update will be applied.
 
 # Boot mode
 
-Some devices might have been configured so long time age that its partition style is **MBR** and it still runs in **Legacy mode** with **Secure boot Off**. It can changed without reinstalling OS! Conversion to GPT feels like a huge risk so if you have a way to backup whole disk it **recommend** that. But I've done it on two different laptops in FullOS Mode and in Windows 10 Safe Mode with Command-prompt and it worked both times! More details about the tool [here](https://docs.microsoft.com/en-us/windows/deployment/mbr-to-gpt). Keep in mind that changes cannot be undone and device will only boot in **UEFI mode**. So if you are doing it remotely you will need **Dell Command \| PowerShell Provider** to make changes in BIOS from Windows.
+Some devices might have been configured so long time age that its partition style is **MBR** and it still runs in **Legacy mode** with **Secure boot Off**. It can be changed without reinstalling OS! Conversion to GPT feels like a huge risk so if you have a way to backup whole disk I **recommend** that. But I've done it on two different laptops in: FullOS Mode and in Windows 10 Safe Mode with Command-prompt and it worked both times! More details about the tool [here](https://docs.microsoft.com/en-us/windows/deployment/mbr-to-gpt). Keep in mind that changes cannot be undone and device will only boot in **UEFI mode**. So if you are doing it remotely you will need **Dell Command \| PowerShell Provider** to make changes in BIOS from Windows.
 
 ``` powershell
 #It is good to run validate parameter first
