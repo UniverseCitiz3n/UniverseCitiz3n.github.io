@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Intune - dealing with ErrorCode 0x8018002b 
 categories:
 
