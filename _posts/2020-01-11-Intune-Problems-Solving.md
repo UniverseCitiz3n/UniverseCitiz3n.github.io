@@ -16,6 +16,7 @@ excerpt: A few things you should try that might help you 👨‍💻
 comments: true
 toc: true
 toc_label: Table of contents
+author_profile: false
 ---
 
 # Intro
