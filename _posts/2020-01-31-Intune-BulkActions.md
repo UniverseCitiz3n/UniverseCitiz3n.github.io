@@ -67,8 +67,8 @@ $MSGraphComputers = (Get-DeviceManagement_ManagedDevices).value | Where { $PSIte
 $WindowsUpdateRings = Get-DeviceManagement_DeviceConfigurations | Where { $PSItem.'@odata.type' -like '*windowsupdate*' }  | ogv -PassThru
 
 #Get list of update states
-$DeviceUpdateStates = foreach($Ring in $Configs){
-    (Invoke-MSGraphRequest -HttpMethod GET -Url "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/$($ring.id)/microsoft.graph.windowsUpdateForBusinessConfiguration/deviceUpdateStates").Value
+$DeviceUpdateStates = foreach($Ring in $WindowsUpdateRings){
+    (Invoke-MSGraphRequest -HttpMethod GET -Url "https://graph.microsoft.com/beta/deviceManagement/deviceConfigurations/$($Ring.id)/microsoft.graph.windowsUpdateForBusinessConfiguration/deviceUpdateStates").Value
 }
 
 #Force reboot devices
