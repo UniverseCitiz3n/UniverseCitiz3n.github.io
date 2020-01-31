@@ -76,6 +76,17 @@ $DeviceUpdateStates | Where { $PSItem.'Update Status' -eq 'Failed' } | Invoke-De
 
 ```
 
-Device will be restarted within 5 minutes
+Device will be restarted within 10 minutes with first notification:
+
+![image4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_4.jpg)
+
+and 2 minutes before:
+
+![image5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_5.jpg)
+
+# Summary
+
+Even though Intune itself does not allow to perform bulk actions it can be easily done with a little bit of Powershell magic✨
+
 See you in next! 😉 🧠
 
