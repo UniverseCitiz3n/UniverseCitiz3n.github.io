@@ -19,18 +19,17 @@ comments: true
 # Intro
 
 Today I'd like to show you how I've was able to force reboot 197 devices to fix Windows Updates issue with just a few lines of code<br>
-<iframe src="https://giphy.com/embed/xT0xeJpnrWC4XWblEk" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/whoa-hd-tim-and-eric-xT0xeJpnrWC4XWblEk">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/xT0xeJpnrWC4XWblEk" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/whoa-hd-tim-and-eric-xT0xeJpnrWC4XWblEk"></a></p>
 
 # The issue
 
-Some users seems like are not a fans of restarting their devices. That behavior led to problem with installing Quality updates on endpoints while Feature update requires **one reboot** after downloading to start installing. Without that **one reboot** Quality updates just stacked and it all led to major security risk! Yes, Intune allows you to set **Deadline for updates** but it is connected with applying update process.
- 
+Some users don't have a habit to restart device from time to time... In our environment that behavior led to problem with installing Quality updates on endpoints. December 2019 Feature update requires **one reboot** after downloading to start installing. Without that **one reboot** Quality updates just stacked and it all lead to major security risks! Yes, Intune allows you to set **Deadline for updates** but it is connected with applying update process.
 
-![image2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_2.jpg)
+![image2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_2.jpg)
 
 To check how big this issue could be you can go to [Windows 10 update rings](https://devicemanagement.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/windows10UpdateRings) and then select desired update ring. Your eyes probably see something like:
 
-![image1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_1.jpg)
+![image1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_1.jpg)
 
 **‼️‼️ Look carefully because this view only shows update profile assignment status ‼️‼️** not real status of updates per device. To see that you need to click on **End user update status**🕵🏼
 
@@ -78,13 +77,13 @@ $DeviceUpdateStates | Where { $PSItem.'Update Status' -eq 'Failed' } | Invoke-De
 
 Device will be restarted within 10 minutes with first notification:
 
-![image4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_4.jpg)
+![image4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_4.jpg)
 
 and 2 minutes before:
 
-![image5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_5.jpg)
+![image5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_5.jpg)
 
-Yeah it is in Windows locale language
+Yeah it is in language set in Windows
 
 # Summary
 
