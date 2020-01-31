@@ -36,11 +36,11 @@ To check how big this issue could be you can go to [Windows 10 update rings](htt
 ![image3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_3.jpg)
 
 There you can see detailed status for each device. And the options are:<br>
-|Status|Value|Description|
-|upToDate|0|There are no pending updates, no pending reboot updates and no failed updates.|
-|pendingInstallation|1|There are updates that’s pending installation which includes updates that are not approved. There are no Pending reboot updates, no failed updates.|
-|pendingReboot|2|There are updates that requires reboot. There are not failed updates.|
-|failed|3|There are updates failed to install on the device.|
+Status|Value|Description
+upToDate|0|There are no pending updates, no pending reboot updates and no failed updates.
+pendingInstallation|1|There are updates that’s pending installation which includes updates that are not approved. There are no Pending reboot updates, no failed updates.
+pendingReboot|2|There are updates that requires reboot. There are not failed updates.
+failed|3|There are updates failed to install on the device.
 
 # Time to fix it! 🔱
 
