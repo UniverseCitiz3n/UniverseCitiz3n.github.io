@@ -84,6 +84,8 @@ and 2 minutes before:
 
 ![image5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_5.jpg)
 
+Yeah it is in Windows locale language
+
 # Summary
 
 Even though Intune itself does not allow to perform bulk actions it can be easily done with a little bit of Powershell magic✨
