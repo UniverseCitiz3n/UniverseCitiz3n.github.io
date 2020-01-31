@@ -31,7 +31,7 @@ To check how big this issue could be you can go to [Windows 10 update rings](htt
 
 ![image1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31_1.jpg)
 
-**‼️‼️ Look carefully because this view only shows update profile assignment status ‼️‼️** not real status of updates per device. To see that you need to click on **End user update status**🕵🏼
+**❗❗ Look carefully because this view only shows update profile assignment status ❗❗** not real status of updates per device. To see that you need to click on **End user update status**🕵🏼
 
 ![image3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-31-01_3.jpg)
 
