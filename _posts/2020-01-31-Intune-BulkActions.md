@@ -19,7 +19,8 @@ comments: true
 # Intro
 
 Today I'd like to show you how I've was able to force reboot 197 devices to fix Windows Updates issue with just a few lines of code<br>
-<iframe src="https://giphy.com/embed/xT0xeJpnrWC4XWblEk" width="480" height="320" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/whoa-hd-tim-and-eric-xT0xeJpnrWC4XWblEk"></a></p>
+![image0]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31.gif)
+
 
 # The issue
 
