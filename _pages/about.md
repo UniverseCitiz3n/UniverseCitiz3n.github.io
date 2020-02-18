@@ -21,10 +21,10 @@ Now I'm learning and using cutting edge technologies to <span style="color:red">
 ## Polish Powershell user group
 
 I'm an co-organizer of **PPoSh**. Our group brings together people who are beginners at using Powershell as their primary administration tool and also pros which are eager to share their solutions, experience and knowledge with others! If you have something to show off to others this group is for you! Check out our social media:
+<img src="https://image.flaticon.com/icons/svg/124/124010.svg" width="250" height="250">
 
-<i class="fa fa-facebook-official" aria-hidden="true">Facebook</i>
 
-<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/pposh_trans.png" width="250" height="250">
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/pposh_trans.png" width="500" height="300">
 
 ## Achievements
 
