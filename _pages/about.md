@@ -25,8 +25,6 @@ I'm an co-organizer of **PPoSh**. Our group brings together people who are begin
 <img src="https://image.flaticon.com/icons/svg/2111/2111520.svg" width="30" height="30"> [Meetup](https://www.meetup.com/Polish-PowerShell-Group-PPoSh/)<br>
 <img src="https://image.flaticon.com/icons/svg/733/733579.svg" width="30" height="30"> [Twitter](https://twitter.com/PPoShGroup)
 
-
-
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/pposh_trans.png" width="500" height="300">
 
 ## Achievements
