@@ -18,7 +18,16 @@ But [Mateusz](https://www.mczerniawski.pl) was more than happy to teach me why a
 
 Now I'm learning and using cutting edge technologies to <span style="color:red">automate</span> everyday tasks and repetitive processes in our team. Also I'm giving a hand other teams by showing them those technologies and help them implement some automation into their duties.
 
+## Polish Powershell user group
+
+I'm an co-organizer of **PPoSh**. Our group brings together people who are beginners at using Powershell as their primary administration tool and also pros which are eager to share their solutions, experience and knowledge with others! If you have something to show off to others this group is for you! Check out our social media:
+
+<i class="fa fa-facebook-official" aria-hidden="true">Facebook</i>
+
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/pposh_trans.png" width="250" height="250">
+
 ## Achievements
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png" width="250" height="250">
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png" width="250" height="250">
+
