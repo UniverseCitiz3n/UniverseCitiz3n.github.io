@@ -22,7 +22,9 @@ Now I'm learning and using cutting edge technologies to <span style="color:red">
 
 I'm an co-organizer of **PPoSh**. Our group brings together people who are beginners at using Powershell as their primary administration tool and also pros which are eager to share their solutions, experience and knowledge with others! If you have something to show off to others this group is for you! Check out our social media:<br>
 <img src="https://image.flaticon.com/icons/svg/124/124010.svg" width="30" height="30"> [Facebook](https://www.facebook.com/PPoShGroup)<br>
-<img src="https://image.flaticon.com/icons/svg/2111/2111520.svg" width="30" height="30"> [Meetup](https://www.meetup.com/Polish-PowerShell-Group-PPoSh/)
+<img src="https://image.flaticon.com/icons/svg/2111/2111520.svg" width="30" height="30"> [Meetup](https://www.meetup.com/Polish-PowerShell-Group-PPoSh/)<br>
+<img src="https://image.flaticon.com/icons/svg/733/733579.svg" width="30" height="30"> [Twitter](https://twitter.com/PPoShGroup)
+
 
 
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/pposh_trans.png" width="500" height="300">
