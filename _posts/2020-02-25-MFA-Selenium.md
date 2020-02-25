@@ -40,9 +40,9 @@ select DisplayName,email,phonenumber
 
 Some sorting and filtering and I ended up with list of around 150 users which fitted in similar pattern where country prefix was doubled. I won't fix it manually!! Let's use some Powershell of MSGraph 😎.
 
-<font size="36">**NOPE**</font>
+<font size="36">NOPE</font>
 
-Powershell can't do that and API is (as on 25.0.2020) to be hopefully exposed in (Q1 2020)[https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio].<br>
+Powershell can't do that and API is (as on 25.0.2020) to be hopefully exposed in [Q1 2020](https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio).<br>
 Quick calculations
 
 ![mfa2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa2.gif)
@@ -55,9 +55,9 @@ There must be some way!! Wait a minute... 💡
 
 # Selenium
 
-If I'm not gonna click it then let's make browser click for me 😁.((Checkout my post about starting with Selenium))[{{ site.url }}{{ site.baseurl }}/_posts/2019-09-27-Selenium-Powershell.md] All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at url of page while being in MFA tab
+If I'm not gonna click it then let's make browser click for me 😁.([Checkout my post about starting with Selenium](https://universecitiz3n.tech/selenium/Selenium-Powershell/)) All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at url of page while being in MFA tab
 
-https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
+https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/<br>**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
 
 The only thing that changes is userID which you can grab from AzureAD like that
 
