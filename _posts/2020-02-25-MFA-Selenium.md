@@ -29,7 +29,7 @@ A user raised an issue that he does not receive codes for MFA. Is it cellphone c
 
 ![mfa]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa.jpg)
 
-Duplicated intercalation call prefix 😮. I've removed additional digits - **0048** - and SMS codes began to arrive to user. That was easy! But then question arrived... how many users might have the same issue? 🤔<br>
+Duplicated international call prefix 😮. I've removed additional digits - **0048** - and SMS codes began to arrive to user. That was easy! But then wondering came... how many users might have the same issue? 🤔<br>
 To check that I've run:
 
 ``` powershell
@@ -38,12 +38,10 @@ $MSONUSER = Get-MsolUser -All | select DisplayName -ExpandProperty StrongAuthent
 select DisplayName,email,phonenumber
 ```
 
-Some sorting and filtering and I ended up with list of around 150 users which fitted in similar pattern where country prefix was doubled. I won't fix it manually!! Let's use some Powershell of MSGraph 😎.
-
-<font size="36">NOPE</font>
-
-Powershell can't do that and API is (as on 25.0.2020) to be hopefully exposed in [Q1 2020](https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio).<br>
-Quick calculations
+Some sorting and filtering and I ended up with list of around 150 users which fitted in similar pattern where country prefix was doubled. I won't fix it manually!! Let's use some Powershell of MSGraph 😎.<br>
+<font size="36">NOPE</font><br>
+Powershell can't do that and API is (as on 25.02.2020) to be hopefully exposed in [Q1 2020](https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio).<br>
+Some quick calculations...
 
 ![mfa2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa2.gif)
 
