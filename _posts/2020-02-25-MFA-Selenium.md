@@ -21,7 +21,7 @@ comments: true
 
 # Intro
 
-Multi-factor authentication (MFA) is great security measure. The most common second factor is probably SMS code sent to your mobile phone. And what could go wrong there? Well I don't know how but at some point recently we had around **150 users** did not receive codes even though they configured **MFA**.
+Multi-factor authentication (MFA) is great security measure. The most common second factor is probably SMS code sent to your mobile phone. And what could go wrong there? Well I don't know how but at some point recently we had around **150 users** which did not receive codes even though they configured **MFA**.
 
 # Issue
 
