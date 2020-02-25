@@ -25,7 +25,7 @@ Multi-factor authentication (MFA) is great security measure. The most common sec
 
 # Issue
 
-A user raised an issue that he does not receive codes for MFA. Is it cellphone carrier issue? Maybe user changed numbers and forgot about it? Or something else? First two where assumptions where ruled out immediately so I focused on configuration of the service itself. For that I went to **user profile** in **Azure AD** and then to **Authentication methods**. There I saw:
+A user raised an issue that he does not receive codes for MFA. Is it cellphone carrier issue? Maybe user changed number and forgot about it? Or something else? First two assumptions were ruled out immediately so I focused on configuration of the service itself. For that I went to **user profile** in **Azure AD** and then to **Authentication methods**. There I saw:
 
 ![mfa]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa.jpg)
 
