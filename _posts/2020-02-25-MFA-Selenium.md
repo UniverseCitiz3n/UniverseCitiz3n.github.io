@@ -53,7 +53,7 @@ There must be some way!! Wait a minute... 💡
 
 # Selenium
 
-If I'm not gonna click it then let's make browser click for me 😁.([Checkout my post about starting with Selenium](https://universecitiz3n.tech/selenium/Selenium-Powershell/)). All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at **url** of page while being in MFA tab
+If I'm not gonna click it then let's make browser click for me 😁 ([Checkout my post about starting with Selenium](https://universecitiz3n.tech/selenium/Selenium-Powershell/)). All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at **url** of page while being in MFA tab
 
 https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/<br>**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
 
@@ -68,7 +68,7 @@ ObjectId                             DisplayName       UserPrincipalName        
 7af69645-0661-451f-b9fd-4fa36946f164 Adele Vance       AdeleV@dunesbox.onmicrosoft.com        Member
 ```
 
-Next thing. I did not expect that providing box properties will be such challenge. Normally you can operate on ID of an item and it will not change. But portal.azure.com proved me wrong! There IDs are randomly generated on every page refresh 😐. But **name** of a box always starts with<br>__azc-textBox and at the end there is a digit. At the begging I though that **Phone** box will always have index 0 but this too was incorrect. There is one more box which is every time while you are on this site... top search box!
+Next thing. I did not expect that providing box properties will be such challenge. Normally you can operate on ID of an item and it will not change. But portal.azure.com proved me wrong! There IDs are randomly generated on every page refresh 😐. But **name** of a box always starts with **__azc-textBox** and at the end there is a digit. At the begging I though that **Phone** box will always have index 0 but this too was incorrect. There is one more box which is every time while you are on this site... top search box!
 
 ![mfa4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa4.jpg)
 
