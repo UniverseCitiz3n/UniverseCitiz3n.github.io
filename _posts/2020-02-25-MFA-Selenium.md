@@ -189,6 +189,7 @@ foreach ($userID in $UsersToFix) {
 
 # Summary
 
-Thanks to that fixing this issue took around one hour where 25 minutes was runtime of this script. It is not the most efficient way but for now it is the only one so I hope it will be useful for you!
+Thanks to that fixing this issue took around **one hour** where **25 minutes** was runtime of this script. It is not the most efficient way but for now it is the only one so I hope it will be useful for you!
+
 See you in next! 😉 🧠
 
