@@ -55,7 +55,7 @@ There must be some way!! Wait a minute... 💡
 
 # Selenium
 
-If I'm not gonna click it then let's make browser click for me 😁. All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at url of page while being in MFA tab
+If I'm not gonna click it then let's make browser click for me 😁.((Checkout my post about starting with Selenium))[{{ site.url }}{{ site.baseurl }}/_posts/2019-09-27-Selenium-Powershell.md] All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at url of page while being in MFA tab
 
 https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
 
@@ -118,7 +118,7 @@ Where-Object {
 
 With all that knowledge I was able to write my script which will modify phone numbers for provided users.
 
-```powershell
+``` powershell
 
 $UsersToFix = import-csv UsersToFix.csv
 $PathToBin = 'c:\your\path\to\WebDriver.dll'
@@ -126,7 +126,6 @@ $PathToBin = 'c:\your\path\to\WebDriver.dll'
 if ($env:Path -notcontains ";$PathToBin`Bin" ) {
     $env:Path += ";$PathToBin`Bin"
 }
-
 
 $ChOptions = New-Object OpenQA.Selenium.Chrome.ChromeOptions
 $ChOptions.AcceptInsecureCertificates = $True
@@ -144,7 +143,6 @@ $ChromeDriver.FindElementById('idSIButton9').Click()
 Start-Sleep 3
 $ChromeDriver.FindElementById('idSIButton9').Click()
 
-
 $SaveButtonXPath = '/html/body/div[1]/div[5]/main/div[4]/div[2]/section/div/div[2]/div[1]/div/ul/li[1]'
 foreach ($userID in $UsersToFix) {
     Write-Default -Info -Message "Changing user $($userID.UserPrincipalName)"
@@ -152,7 +150,7 @@ foreach ($userID in $UsersToFix) {
     $ChromeDriver.url = $AzureUrl
     $ChromeDriver.Navigate().Refresh()
     Start-Sleep 5
-    Write-Log -Info -Message "Clearing field value"
+    Write-Output "Clearing field value"
     $Boxes = foreach ($i in 0..4) {
         $TextBox = "__azc-textBox$i"
         try {
@@ -181,16 +179,18 @@ foreach ($userID in $UsersToFix) {
 
     $ChromeDriver.FindElementByName($MobileBox.ID).Clear()
     Start-Sleep 1
-    Write-Log -Info -Message "Setting user correct number"
+    Write-Output "Setting user correct number"
     
     $ChromeDriver.FindElementsByName($MobileBox.ID).SendKeys($UserCorrectNumber)
     Start-Sleep 1
-    Write-Log -Info -Message "Saving changes"    
+    Write-Output "Saving changes"    
     $ChromeDriver.FindElementByXPath($SaveButtonXPath).Click()
     Start-Sleep 1
 }
 ```
+
 # Summary
 
+Thanks to that fixing this issue took around one hour where 25 minutes was runtime of this script. It is not the most efficient way but for now it is the only one so I hope it will be useful for you!
 See you in next! 😉 🧠
 
