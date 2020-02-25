@@ -8,7 +8,7 @@ tags:
 
     - Intune
     - Powershell
-    - MicrosoftGraph
+    - Microsoft Graph
 
 excerpt: Easy way to break and fix things in a matter of seconds! ⚠️
 

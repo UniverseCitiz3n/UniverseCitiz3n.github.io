@@ -7,7 +7,7 @@ categories:
 tags:
 
     - Intune
-    - ActiveDirectory
+    - Active Directory
     - macOS
 
 excerpt: It looks like 🍏 can obey Microsoft 🔥
