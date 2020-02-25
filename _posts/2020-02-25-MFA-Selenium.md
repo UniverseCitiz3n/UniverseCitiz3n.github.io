@@ -40,7 +40,7 @@ select DisplayName,email,phonenumber
 
 Some sorting and filtering and I ended up with list of around 150 users which fitted in similar pattern where country prefix was doubled. I won't fix it manually!! Let's use some Powershell of MSGraph 😎.
 
-### **NOPE**
+<font size="36">**NOPE**</font>
 
 Powershell can't do that and API is (as on 25.0.2020) to be hopefully exposed in (Q1 2020)[https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio].<br>
 Quick calculations
