@@ -77,7 +77,15 @@ foreach ($userID in $($AADUsers | Where-Object { $psitem.UserPrincipalName -ne '
             LocationY = $LocationY
         }
     }
-    $Boxes
+<#
+ID             LocationX LocationY
+--             --------- ---------
+__azc-textBox0       283         7
+__azc-textBox1       844       295
+__azc-textBox2       844       334
+__azc-textBox3       844       373
+__azc-textBox4       844       412
+#>
     $MobileBox = $Boxes |`
         Where-Object { 
         $PSItem.Locationy -eq (($Boxes |`
