@@ -1,5 +1,32 @@
-$UserName = 'maciejhorbacz@dunesbox.onmicrosoft.com'
-$Password = '3RuRz5EsJas&'
+$UserName = ''
+$Password = ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Connect-MsolService
+$MSONUSER = Get-MsolUser -All |`
+    Select-Object DisplayName -ExpandProperty StrongAuthenticationUserDetails |`
+    Select-Object DisplayName, email, phonenumber
+
+Set-MsolUser -UserPrincipalName NestorW@dunesbox.onmicrosoft.com  -MobilePhone '000000001' -PhoneNumber '00000001'
+
+
+Connect-AzureAD
+$AADUsers = Get-AzureADUser -All:$True
+
 
 $PathToBin = 'C:\Repos\Objectivity.ProjectManagement\Objectivity.ProjectManagement\Bin\WebDriver.dll'
 [System.Reflection.Assembly]::LoadFrom("{0}" -f $PathToBin)
@@ -26,7 +53,7 @@ $ChromeDriver.FindElementById('idSIButton9').Click()
 
 
 $SaveButtonXPath = '/html/body/div[1]/div[5]/main/div[4]/div[2]/section/div/div[2]/div[1]/div/ul/li[1]'
-foreach ($userID in $AADUsers) {
+foreach ($userID in $($AADUsers | Where-Object { $psitem.UserPrincipalName -ne 'maciejhorbacz@dunesbox.onmicrosoft.com' })) {
     Write-Log -Info -Message "Changing user $($userID.UserPrincipalName)"
     $AzureUrl = "https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/$($userID.ObjectId)/adminUnitObjectId/"
     $ChromeDriver.url = $AzureUrl
@@ -57,7 +84,7 @@ foreach ($userID in $AADUsers) {
                     Where-Object {
                     $PSItem.locationx -eq $( ($boxes.locationx | Measure-Object -Maximum).Maximum)
                 }).locationy | Measure-Object -Minimum).Minimum 
-            }
+    }
 
     $ChromeDriver.FindElementByName($MobileBox.ID).Clear()
     Start-Sleep 1
