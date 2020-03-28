@@ -13,14 +13,15 @@ tags:
 excerpt: Easy way to break and fix things in a matter of seconds! ⚠️
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 
 # Intro
 
 Today I'd like to show you how I've was able to force reboot 197 devices to fix Windows Updates issue with just a few lines of code<br>
-![image0]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31.gif)
 
+![image0]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-01-31.gif)
 
 # The issue
 

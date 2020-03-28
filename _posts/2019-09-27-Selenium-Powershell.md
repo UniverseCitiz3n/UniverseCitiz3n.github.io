@@ -13,7 +13,8 @@ tags:
 excerpt: Selenium is framework for testing web applications..but I'm using it for automate things where API is no good
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 # Intro
 

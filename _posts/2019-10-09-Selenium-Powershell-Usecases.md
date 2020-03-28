@@ -15,7 +15,8 @@ tags:
 excerpt: What you can do and how to automate clicking in browser with Powershell
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 # Intro
 

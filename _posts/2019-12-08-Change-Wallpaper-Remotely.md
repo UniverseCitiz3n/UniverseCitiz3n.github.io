@@ -12,7 +12,8 @@ tags:
 excerpt: It's good to sometimes make a prank on your colleagues
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 
 # Intro

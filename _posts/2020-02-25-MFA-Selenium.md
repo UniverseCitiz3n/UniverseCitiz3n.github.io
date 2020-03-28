@@ -16,7 +16,8 @@ tags:
 excerpt: ... to fix hundreds of users mobile numbers in AzureAD MFA config manually? 😱
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 
 # Intro

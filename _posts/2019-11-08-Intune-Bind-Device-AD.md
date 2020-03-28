@@ -13,7 +13,8 @@ tags:
 excerpt: It looks like 🍏 can obey Microsoft 🔥
 
 comments: true
-
+toc: true
+toc_label: Table of contents
 ---
 
 # Intro
