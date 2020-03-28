@@ -63,7 +63,7 @@ Another thing is that after installation is complete I'm exiting the script with
 
 Before you will be able create app deloy in Intune you need to wrap you stuff into **.intunewin** format. Go [here](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to get wrapping tool 🎁. Using it is child's play:
 
-![wrap]({{ site.url }}{{ site.baseurl }}/assets/images/posts/wrapping.mp4)
+![wrap]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_wrap.gif)
 
 Prepared package upload to app profile
 
