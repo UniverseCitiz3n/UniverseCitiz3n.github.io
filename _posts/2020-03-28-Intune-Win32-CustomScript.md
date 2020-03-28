@@ -83,11 +83,51 @@ After installing Intel Graphics drivers you need reboot the device. It can be do
 
 **But only if you allow it**
 
-![soft]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_5.jpg)
+![softnotif]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_5.jpg)
 
-**Hard reboot** - will too show Toast notification about restart
+**Hard reboot** - will too show Toast notification about restart if you set **Restart grace period**
+
+![grace]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_6.jpg)
+
+![notify]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_8.jpg)
+
+And in summary you will see
+
+![status]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_7.jpg)
+
+# Detection rule
+
+Last step of app deployment is verification if software is present on device. You can specify this setting is many different ways: 
+
+![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_7.jpg)
+
+More detailed info you will find [here](https://docs.microsoft.com/en-us/mem/intune/apps/apps-win32-app-management#step-4-detection-rules). In this deployment I decided to use **Custom detection script**
+
+``` powershell
+$Driver = Get-CimInstance -ClassName win32_pnpsigneddriver | Select-Object devicename, manufacturer, driverversion | Where-Object {$PSItem.DeviceName -like 'Intel(R)*HD Graphics*'}
+
+if ($Driver.driverversion -eq '26.20.100.6888') {
+    Write-Output 'Newest version installed'
+}
+else {
+    exit 1
+}
+
+```
+
+And this table explains how it works
+
+Exit code|Data read from Write-Output|Detection state
+0|Empty|Not detected
+0|Not empty|Detected
+Not zero|Empty|Not detected
+Not zero|Not Empty|Not detected
 
 # Summary
+
+Deployment of apps using Win32 allows you to do a lot of magic with great precise! For sure I will play with it a lot.🧙‍♂️
+
+![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_10.jpg)
 
 See you in next! 😉 🧠
 
