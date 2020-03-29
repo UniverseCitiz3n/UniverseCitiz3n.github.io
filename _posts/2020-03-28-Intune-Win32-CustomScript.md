@@ -53,7 +53,7 @@ If($Process.Exitcode -eq '0'){
 }
 ```
 
-There is not much doing but it shows how simple it can be to fit installation to your needs. Notice that Intel installer path is **.\Intel\igxpin.exe** it means that Microsoft Intune Management Extension runs installation with current path set to insides of deployed packaged.
+There is not much going but it shows how simple it can be to fit installation to your needs. Notice that Intel installer path is **.\Intel\igxpin.exe** it means that Microsoft Intune Management Extension runs installation with current path set to inside of deployed package.
 
 ![path]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_1.jpg)
 
@@ -61,7 +61,7 @@ Another thing is that after installation is complete I'm exiting the script with
 
 # Microsoft Intune Content Prep Tool
 
-Before you will be able create app deploy in Intune you need to wrap you stuff into **.intunewin** format. Go [here](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to get wrapping tool 🎁. Using it is child's play:
+Before you will be able create app deploy in Intune you need to wrap your stuff into **.intunewin** format. Go [here](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to get wrapping tool 🎁. Using it is child's play:
 
 ![wrap]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_wrap.gif)
 
@@ -89,7 +89,8 @@ Sort-Object -Property DisplayName
 
 It scans through registry and will list all applications on device.<br>
 Installing Intel Graphics drivers requires device reboot. It can be done with installation parameter but it will do the reboot immediately which in business is not a good option. Better way is to act accordingly to return codes.<br>
-**Soft reboot** - will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
+
+## Soft reboot<br> - will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
 
 ![soft]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_4.jpg)
 
@@ -97,7 +98,7 @@ Installing Intel Graphics drivers requires device reboot. It can be done with in
 
 ![softnotif]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_5.jpg)
 
-**Hard reboot** - will too show Toast notification about restart if you set **Restart grace period**
+## Hard reboot<br> - will too show Toast notification about restart if you set **Restart grace period**
 
 ![grace]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_6.jpg)
 
