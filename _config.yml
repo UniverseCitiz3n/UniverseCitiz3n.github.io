@@ -88,7 +88,7 @@ facebook:
   username:
   app_id:
   publisher:
-og_image: /assets/head_image_sized.png
+og_image: /assets/head_image.png
 # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
