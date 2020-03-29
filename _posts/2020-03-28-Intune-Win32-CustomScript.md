@@ -114,7 +114,7 @@ And in summary you will see
 
 Last step of app deployment is verification if software is present on device. You can specify this setting is many different ways: 
 
-![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_7.jpg)
+![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_9.jpg)
 
 More detailed info you will find [here](https://docs.microsoft.com/en-us/mem/intune/apps/apps-win32-app-management#step-4-detection-rules). In this deployment I decided to use **Custom detection script**
 
