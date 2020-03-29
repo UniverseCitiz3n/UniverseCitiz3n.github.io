@@ -102,7 +102,7 @@ Installing Intel Graphics drivers requires device reboot. It can be done with in
 
 **Hard reboot**
 
-* will too show Toast notification about restart and setting **Restart grace period** is good practice.
+* will too show Toast notification about restart but also force user to reboot the device. And setting **Restart grace period** is good practice.
 
 ![grace]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_6.jpg)
 
