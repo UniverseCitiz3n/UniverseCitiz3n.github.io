@@ -2,7 +2,7 @@
 title: Intune - dealing with ErrorCode 0x8018002b 
 categories:
 
-    - Cloud
+    - Intune
 
 tags:
 
