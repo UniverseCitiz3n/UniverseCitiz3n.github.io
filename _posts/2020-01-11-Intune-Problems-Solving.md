@@ -8,7 +8,7 @@ tags:
 
     - Intune
     - ActiveDirectory
-    - Workstation
+    - Workstations
     - Windows 10
 
 excerpt: A few things you should try that might help you 👨‍💻
