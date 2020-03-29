@@ -91,7 +91,8 @@ It scans through registry and will list all applications on device.<br>
 Installing Intel Graphics drivers requires device reboot. It can be done with installation parameter but it will do the reboot immediately which in business is not a good option. Better way is to act accordingly to return codes.<br>
 
 **Soft reboot**
-- will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
+
+* will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
 
 ![soft]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_4.jpg)
 
@@ -100,7 +101,8 @@ Installing Intel Graphics drivers requires device reboot. It can be done with in
 ![softnotif]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_5.jpg)
 
 **Hard reboot**
-- will too show Toast notification about restart and setting **Restart grace period** is good practice.
+
+* will too show Toast notification about restart and setting **Restart grace period** is good practice.
 
 ![grace]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_6.jpg)
 
@@ -141,7 +143,8 @@ Not zero|Not Empty|Not detected
 
 # Summary
 
-Deployment of apps using Win32 allows you to do a lot of magic with great precise! For sure I will play with it a lot.🧙‍♂️
+Deployment of apps using Win32 allows you to do a lot of magic with great precise! For sure I will play with it a lot.🧙‍♂️<br>
+Sneak peak on deployment status:
 
 ![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_10.jpg)
 
