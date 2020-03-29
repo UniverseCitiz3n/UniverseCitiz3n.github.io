@@ -75,8 +75,20 @@ Going further, you will need to specify command for installing your package. Bec
 
 ![install]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_3.jpg)
 
-In this case I'm updating drivers so uninstall command won't be really needed so **Exit 0** should be fine. I hope that it won't brake anything that I'm not aware right now... 😅<br>
-After installing Intel Graphics drivers you need reboot the device. It can be done with installation parameter but it will do the reboot immediately which in business is not a good option. Better way is to act accordingly to return codes.<br>
+To find out software uninstall command run code below on device which already has it installed
+
+``` powershell
+Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                    'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                    'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+                    'HKCU:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' -ErrorAction Ignore |
+Where-Object DisplayName |
+Select-Object -Property DisplayName, DisplayVersion, UninstallString, InstallDate |
+Sort-Object -Property DisplayName
+```
+
+It scans through registry and will list all applications on device.<br>
+Installing Intel Graphics drivers requires device reboot. It can be done with installation parameter but it will do the reboot immediately which in business is not a good option. Better way is to act accordingly to return codes.<br>
 **Soft reboot** - will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
 
 ![soft]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_4.jpg)
