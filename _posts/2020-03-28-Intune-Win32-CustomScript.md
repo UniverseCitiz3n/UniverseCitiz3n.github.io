@@ -123,6 +123,7 @@ $Driver = Get-CimInstance -ClassName win32_pnpsigneddriver | Select-Object devic
 
 if ($Driver.driverversion -eq '26.20.100.6888') {
     Write-Output 'Newest version installed'
+    #Exit code will be 0 and STDOUT not empty
 }
 else {
     exit 1
