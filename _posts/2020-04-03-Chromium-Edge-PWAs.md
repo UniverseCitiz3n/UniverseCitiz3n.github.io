@@ -37,11 +37,11 @@ Now that it is being deployed we can prepare our Start menu Tiles.
 
 Basically what **installing a site as an app** in Edge is creation of simple shortcut with some **AppID**:
 
-"C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe" --profile-directory="Profile 1" --app-id=idedlkepfahmdemmnladahgfmcaapdjg
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe" --profile-directory="Default" --app-id=idedlkepfahmdemmnladahgfmcaapdjg
 
 But what you can do is modify this like that:
 
-"C:\Program Files (x86)\Microsoft\Edge Dev\Application\msedge_proxy.exe" --profile-directory="Profile 1" --app=https://universecitiz3n.tech/
+"C:\Program Files (x86)\Microsoft\Edge Dev\Application\msedge_proxy.exe" --profile-directory="Default" --app=https://universecitiz3n.tech/
 
 And you get link to my blog!😆
 
