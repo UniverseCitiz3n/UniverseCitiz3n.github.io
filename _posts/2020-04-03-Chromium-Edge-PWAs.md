@@ -129,7 +129,11 @@ Resulting XML will contain all tiles so you will need to modify it just to leave
 ```
 
 And to block newly created tiles from editing by user you must specify parameter at line:<br>
-<DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups"><br>
+
+``` powershell
+<DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
+```
+
 But the rest of the tiles will not be changed.
 
 Such prepared xml can be deployed using Intune. Go to **Configuration profiles**, create **Device restrictions** profile, upload **xml**
