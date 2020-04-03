@@ -148,7 +148,7 @@ And no other settings are required!
 
 # Summary
 
-Chromium-Edge PWAs is such great feature! And taking advantage of is simple thing!<br>One last thing... **make sure that the icons are somewhere to found the workstation**
+Chromium-Edge PWAs is such great feature! And taking advantage of it is simple a thing!<br>One last thing... **make sure that the icons are somewhere to found the workstation**
 
 See you in next! 😉 🧠
 
