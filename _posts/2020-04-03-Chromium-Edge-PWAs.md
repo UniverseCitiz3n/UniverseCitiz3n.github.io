@@ -86,6 +86,7 @@ foreach ($item in $Config) {
     $WScriptShell = New-Object -ComObject WScript.Shell
     $Shortcut = $WScriptShell.CreateShortcut($ShortcutLocation)
     $Shortcut.TargetPath = $SourceFileLocation
+    #Location of icons on workstation
     $Shortcut.IconLocation = (Get-item ".\icons\$($item.icon)").FullName
     $Shortcut.Arguments = $Arguments
     $Shortcut.Save()
