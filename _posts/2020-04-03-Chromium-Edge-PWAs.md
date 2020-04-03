@@ -19,7 +19,7 @@ toc_label: Table of contents
 
 # Intro
 
-Yesterday colleague of mine sent me interesting video - [How to open "multiple instances" of Microsoft Teams](https://youtu.be/aCWhRtl9JIY?t=77). Which got me thinking, is there a way to customize those apps and attach them for employees have quick access links on their workstations?? Drum roll... .🥁
+Yesterday colleague of mine sent me interesting video - [How to open "multiple instances" of Microsoft Teams](https://youtu.be/aCWhRtl9JIY?t=77). Which got me thinking, is there a way to customize those apps and attach them for employees to have quick access links on their workstations?? Drum roll... .🥁
 
 # Deploy new Edge
 
