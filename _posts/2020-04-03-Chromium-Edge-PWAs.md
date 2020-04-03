@@ -110,11 +110,10 @@ Export-StartLayout -Path c:\temp\layout.xml
 ```
 
 Resulting XML will contain all tiles so you will need to modify it just to leave our configuration
-``xml
+``powershell
 <LayoutModificationTemplate xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout" xmlns:start="http://schemas.microsoft.com/Start/2014/StartLayout" Version="1" xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification">
   <LayoutOptions StartTileGroupCellWidth="6" />
   <DefaultLayoutOverride LayoutCustomizationRestrictionType="OnlySpecifiedGroups">
-
     <StartLayoutCollection>
       <defaultlayout:StartLayout GroupCellWidth="6">
         <start:Group Name="Important">
@@ -124,7 +123,6 @@ Resulting XML will contain all tiles so you will need to modify it just to leave
         </start:Group>
       </defaultlayout:StartLayout>
     </StartLayoutCollection>
-
   </DefaultLayoutOverride>
 </LayoutModificationTemplate>
 ```
