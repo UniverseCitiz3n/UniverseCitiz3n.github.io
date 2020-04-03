@@ -35,7 +35,7 @@ Now that it is being deployed we can prepare our Start menu Tiles.
 
 # Start menu Tiles
 
-Basically what **installing a site as an app** in Edge does is creation of simple shortcut with some **AppID**:
+Basically what **installing a site as an app** in Edge is creation of simple shortcut with some **AppID**:
 
 "C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe" --profile-directory="Profile 1" --app-id=idedlkepfahmdemmnladahgfmcaapdjg
 
