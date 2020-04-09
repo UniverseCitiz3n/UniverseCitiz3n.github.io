@@ -130,6 +130,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://www.instagram.com/galaxy_spin/"
+    - label: "Planet Powershell"
+      icon: "https://www.planetpowershell.com/Content/img/planetpowershell-featured-badge.png"
+      url: ""
 
 # Site Footer
 footer:
