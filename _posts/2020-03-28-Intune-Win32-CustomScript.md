@@ -35,6 +35,17 @@ elseif (!(Test-Path C:\Temp\SU)) {
     New-Item -Path C:\Temp -ItemType Directory -Name SU
 }
 
+function Exit-WithCode
+{
+    param
+    (
+        $exitcode
+    )
+
+    $host.SetShouldExit($exitcode)
+    exit
+}
+
 $SoftwareName = 'IntelGraphics'
 #Check currently installed version of driver
 $InstallationVersion = Get-CimInstance -ClassName win32_pnpsigneddriver | Select-Object devicename, manufacturer, driverversion | Where-Object {$PSItem.DeviceName -like 'Intel(R)*HD Graphics*'}
@@ -46,10 +57,10 @@ $Process.WaitForExit()
 #Determine exit of installation based on exitcode of Intel  
 If($Process.Exitcode -eq '0'){
     #Hard reboot
-    Exit 1641
+    Exit-WithCode -exitcode 1641
 }else{
     #Retry
-    Exit 1618
+    Exit-WithCode -exitcode 1618
 }
 ```
 
