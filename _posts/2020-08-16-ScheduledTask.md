@@ -151,7 +151,7 @@ $Settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Hour
 
 ...go on and checkout [all available settings](https://docs.microsoft.com/en-us/powershell/module/scheduledtasks/new-scheduledtasksettingsset?view=win10-ps) to make sure your task is robust 💪🏼!
 
-# Use case - Run Dell Command | Update
+# Use case - Run Dell Command Update
 
 Now that you know your way around `Scheduled Tasks` lets use it to make some magic ✨.
 
