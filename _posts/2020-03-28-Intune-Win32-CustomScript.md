@@ -23,7 +23,7 @@ Whole world gone mad but keeping your endpoints patched should not wait. Case fo
 
 # Prepare your script
 
-To user Intune Win32 application deployment you need to wrap installer with special tool (more info below), provide install and uninstall command and you are kind of done. For some basic stuff or in-house apps it should be enough but when you want some more control over what is happening during deployment I will let you in on a little secret... **you can wrap Powershell script**🥂. Well that's neat! Thanks to that I was able to check if workstation has my favorite folder for storing stuff and determine **exit code** based on installation result.
+To use Intune Win32 application deployment you need to wrap installer with special tool (more info below), provide install and uninstall command and you are kind of done. For some basic stuff or in-house apps it should be enough but when you want some more control over what is happening during deployment I will let you in on a little secret... **you can wrap Powershell script**🥂. Well that's neat! Thanks to that I was able to check if workstation has my favorite folder for storing stuff and determine **exit code** based on installation result.
 
 ``` powershell
 #Check for path where logs will be stored
