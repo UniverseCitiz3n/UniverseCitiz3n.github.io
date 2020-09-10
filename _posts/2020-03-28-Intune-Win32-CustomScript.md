@@ -35,6 +35,11 @@ elseif (!(Test-Path C:\Temp\SU)) {
     New-Item -Path C:\Temp -ItemType Directory -Name SU
 }
 
+function Get-Info
+{
+    "[$Env:ComputerName] [$Tag] [$((Get-Date -Format 'yyyy-MM-dd HH:mm:ss').ToString())] [$($env:UserName)] [$($MyInvocation.ScriptLineNumber)]"
+}
+
 function Exit-WithCode
 {
     param
@@ -50,7 +55,7 @@ $SoftwareName = 'IntelGraphics'
 #Check currently installed version of driver
 $InstallationVersion = Get-CimInstance -ClassName win32_pnpsigneddriver | Select-Object devicename, manufacturer, driverversion | Where-Object {$PSItem.DeviceName -like 'Intel(R)*HD Graphics*'}
 #Write driver version to file
-"[$Env:ComputerName] [$SoftwareName] [$((Get-Date -Format 'yyyy-MM-dd HH:mm:ss').ToString())] Installed version $($InstallationVersion.driverversion)" | Out-File -Append -FilePath c:\Temp\SU\IntelGraph.log
+"$(Get-Info) Installed version $($InstallationVersion.driverversion)" | Out-File -Append -FilePath c:\Temp\SU\IntelGraph.log
 #Install drivers silently
 $Process = start-process ".\Intel\igxpin.exe" -ArgumentList @('-report c:\temp\su\IntelGraph.log', '-s') -NoNewWindow -Wait -PassThru
 $Process.WaitForExit()
