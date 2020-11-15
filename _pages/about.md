@@ -5,8 +5,6 @@ title: "About"
 
 ![Me]({{ site.url }}{{ site.baseurl }}/assets/images/aboutme/profile.jpg)
 
----
-
 ## A (NOT) long time ago in a galaxy far far away
 
 My first encounter with personal computer was when I was 5 years old. It had Windows 95 and 98 in dualboot. Yep I think you remember that some games from 95 did not work on 98 so keeping both was good option 😄
