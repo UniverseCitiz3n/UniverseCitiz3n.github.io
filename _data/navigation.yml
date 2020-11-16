@@ -4,6 +4,10 @@ main:
     url: /
   - title: "About"
     url: /about/
+  - title: "Events"
+  url: /events/
+  - title: "Publications"
+  url: "https://leanpub.com/psconfbook3/"
   - title: "Archive Posts"
     url: /year-archive/
   - title: "Tags"
