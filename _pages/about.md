@@ -28,6 +28,7 @@ I'm an co-organizer of **PPoSh**. Our group brings together people who are begin
 
 ## Achievements
 
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/exam-md101-600x600.png" width="250" height="250">
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/microsoft365-fundamentals-600x600.png" width="250" height="250">
 <img src="{{ site.url }}{{ site.baseurl }}/assets/images/aboutme/Exam-OEM-Manufacturing.png" width="250" height="250">
 
