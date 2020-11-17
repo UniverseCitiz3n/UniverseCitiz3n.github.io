@@ -10,4 +10,4 @@ Here you will find all past and future events that I attended as speaker.
 * [PowerShell & DevOps Global Conference #PWSH24](http://web-old.archive.org/web/20201101021600/https://powershell.org/24hour/#1601326982112-7048eaf8-eb8e) - 15.10.2020
 * [Microsoft 365 User Group PL Wrocław #4](https://www.meetup.com/pl-PL/Microsoft-365-User-Group-Poland/events/270480941/) - 13.05.2020
 * [PPoSh #14 - Azure and SPO madness](https://www.meetup.com/pl-PL/Polish-PowerShell-Group-PPoSh/events/256911696/) - 12.12.2018
-* [PPoSH #4](https://www.meetup.com/pl-PL/Polish-PowerShell-Group-PPoSh/events/242088012/) - 29.08.2017
+* [PPoSh #4](https://www.meetup.com/pl-PL/Polish-PowerShell-Group-PPoSh/events/242088012/) - 29.08.2017
