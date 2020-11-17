@@ -4,7 +4,7 @@ layout: single
 title: "Events"
 ---
 
-Here you will find all past and future events that I attended as speaker.
+Here you will find all past and future events that I attended as a speaker.
 
 * [PPoSh #22](https://www.meetup.com/pl-PL/Polish-PowerShell-Group-PPoSh/events/273504857/) - 03.11.2020
 * [PowerShell & DevOps Global Conference #PWSH24](http://web-old.archive.org/web/20201101021600/https://powershell.org/24hour/#1601326982112-7048eaf8-eb8e) - 15.10.2020
