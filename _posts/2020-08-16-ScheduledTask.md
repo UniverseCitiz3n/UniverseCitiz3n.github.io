@@ -93,7 +93,7 @@ $AddHour = (Get-Date).AddHours(1).ToString('O')
 $Trigger.EndBoundary = $AddHour
 ```
 
-When you create the trigger with New-ScheduledTaskTrigger, the time you specify is converted to UTC time and saved as a string in the trigger's StartBoundary property.
+When you create the trigger with New-ScheduledTaskTrigger, the time you specify is converted and saved as a string in the trigger's StartBoundary property.
 Be sure to convert your `EndBoundary` timezone 🕒.
 
 ## User
