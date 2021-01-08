@@ -89,7 +89,7 @@ To do that you need to specify `EndBoundary` value in a trigger.
 
 ```powershell
 $Trigger = New-ScheduledTaskTrigger -Once -At $(Get-date).AddSeconds(30)
-$AddHour = (Get-Date).AddHours(1).ToUniversalTime().ToString('%yy-%M-%dT%H:%m:%s.000Z')
+$AddHour = (Get-Date).AddHours(1).ToString('O')
 $Trigger.EndBoundary = $AddHour
 ```
 
