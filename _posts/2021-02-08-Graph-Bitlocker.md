@@ -269,6 +269,8 @@ foreach ($device in $ManagedDevices) {
 }
 ```
 
+![img14]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img14.png)
+
 # Summary
 
 Thanks to `Microsoft Graph API` you can run check against `Azure AD` for bitlocker recovery keys.
