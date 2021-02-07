@@ -269,6 +269,8 @@ foreach ($device in $ManagedDevices) {
 }
 ```
 
+Output
+
 ![img14]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img14.png)
 
 # Summary
