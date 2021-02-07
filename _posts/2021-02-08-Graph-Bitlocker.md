@@ -31,7 +31,7 @@ Better safe than sorry!
 # Backup Bitlocker recovery key
 
 You can store recovery key in local `Active Directory` or `Azure Active Directory`.
-Sending key to AD requires line of sight with domain controller where AAD Internet connection is enough.
+Sending key to AD requires line of sight with domain controller where for AAD Internet connection is enough.
 Let's stick with AAD 💪
 
 To perform backup you will need open `PowerShell` as an administrator and execute
@@ -109,7 +109,7 @@ In november 2020 Microsoft provided beta API to `list` all keys and `get` key de
 Well...at last!😑
 Click [here](https://docs.microsoft.com/en-us/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) to jump to documentation.
 
-Right now I'm interested in listing all recovery keys in AAD.
+I'm interested in listing all recovery keys in AAD.
 To be able to do that you need specific set of permissions
 
 ![img4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img4.png)
@@ -218,11 +218,11 @@ Start with creating `PowerShell` script deployment using `Intune`.
 Go to [devices | scripts](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell) and create new `Windows 10` configuration.
 Fill out the name and upload your backup script covered in first section of this post
 
-![img11]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img11.png)
+![img12]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img12.png)
 
 Assign some AAD group and finish
 
-![img12]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img12.png)
+![img13]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img13.png)
 
 Assign additional permissions to your application:
 
