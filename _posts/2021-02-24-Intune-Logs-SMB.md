@@ -18,7 +18,7 @@ toc_label: Table of contents
 
 # Intro
 
-Getting logs for troubleshooting deployments and configurations driven by Intune maybe difficult when device is off-prem (which nowadays is most of the times). In this post I will show you how to create Azure file share, map it as network drive and make Intune do the copying. ☁
+Getting logs for troubleshooting deployments and configurations driven by Intune may be difficult when device is off-prem (which nowadays is most of the times). In this post I will show you how to create Azure file share, map it as network drive and make Intune do the copying. ☁
 
 # Azure file share
 
@@ -61,7 +61,7 @@ if ($connectTestResult.TcpTestSucceeded) {
 
 In my environment I've came upon issue while trying to map disc using method from above.
 My issue was that `HKLM:SYSTEM\CurrentControlSet\Control\Lsa\LmCompatibilityLevel` was set to `1`.
-After I've changed it to `3` it worked! 😄
+After I've changed it to `3` it worked! 😄<br>
 For additional troubleshooting visit [docs](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems).
 
 # Copy logs using Intune
@@ -151,7 +151,7 @@ For detection let's check for our file in networkshare
 
 ![smb7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB7.png)
 
-Fill out the rest of configurations and you are ready!
+Complete the rest of configuration and you are ready!
 To access uploaded logs just map this file share on your device 😎
 
 ![smb8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB8.png)
