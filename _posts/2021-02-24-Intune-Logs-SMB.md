@@ -25,23 +25,23 @@ Getting logs for troubleshooting deployments and configurations driven by Intune
 Creating Azure file share is very simple!
 Go to [portal azure](https://portal.azure.com/#create/Microsoft.StorageAccount) and fil lout required boxes
 
-![smb1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb1.png)
+![smb1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB1.png)
 
 After storage account is deployed navigate to **Overview** and then **File shares**:
 
-![smb2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb2.png)
+![smb2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB2.png)
 
 Create new file share
 
-![smb3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb3.png)
+![smb3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB3.png)
 
 Enter desired **name**, **quota** and click **create**
 
-![smb4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb4.png)
+![smb4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB4.png)
 
 Go to created share and click on **connect**
 
-![smb5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb5.png)
+![smb5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB5.png)
 
 You will get `Powershell` which performs connection test to the share over 445 port, saves credentials for it and permanently maps drive for you.
 In this solution permanent mapping is not necessary so you will need to make some modifications this script.
@@ -145,16 +145,16 @@ To test your script it's the best to use [Intune-App-Sandbox](https://github.com
 After your package successfully passed the test you can create deployment profile!
 Upload `.intunewin` file and enter install command
 
-![smb6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb6.png)
+![smb6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB6.png)
 
 For detection let's check for our file in networkshare
 
-![smb7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb7.png)
+![smb7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB7.png)
 
 Fill out the rest of configurations and you are ready!
 To access uploaded logs just map this file share on your device 😎
 
-![smb8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/smb8.png)
+![smb8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB8.png)
 
 # Summary
 
