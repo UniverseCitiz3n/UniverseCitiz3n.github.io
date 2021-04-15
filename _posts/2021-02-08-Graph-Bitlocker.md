@@ -198,8 +198,15 @@ $Bitlockerheader = @{
   'ocp-client-version' = '1.2'
 }
 
-$Bitlockeruri = "$GraphUri/$GraphVersion/bitlocker/recoveryKeys"
-$bitlockerkeys = Invoke-RestMethod -Uri $Bitlockeruri -Headers $Bitlockerheader -Method Get
+$bitlockerkeys = @()
+$Bitlockeruri = "$GraphUrl/$GraphVersion/bitlocker/recoveryKeys"
+$bitlockerkeysuri = Invoke-RestMethod -Uri $Bitlockeruri -Headers $Bitlockerheader -Method Get
+$bitlockerkeys += $bitlockerkeysuri.value
+while ($bitlockerkeysuri.'@odata.nextLink') {
+	$NextBatchRequest = $bitlockerkeysuri.'@odata.nextLink'
+	$bitlockerkeysuri = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Bitlockerheader -Method Get
+	$bitlockerkeys += $bitlockerkeysuri.value
+}
 ```
 
 >NOTE: As stated in [documentation](https://docs.microsoft.com/en-us/graph/api/bitlocker-list-recoverykeys?view=graph-rest-beta&tabs=http#request-headers) header requires `ocp-client-name` and `ocp-client-version`
@@ -235,11 +242,16 @@ Now go to your `runbook` and expand it with following code
 
 ```powershell
 # Get all AAD devices and filter out Windows managed by Intune
-$Deviceuri = "$GraphUri/$GraphVersion/devices"
-$AllDevices = Invoke-RestMethod -Uri $Deviceuri -Headers $Headers -Method Get
-$ManagedDevices = $AllDevices.Value  | Where-Object { ($PSItem.operatingSystem -eq 'Windows') -and ($PSItem.isManaged -eq $true) }
-
-$ResolveDevices = $bitlockerkeys.value
+$AllDevices = @()
+$Deviceuri = "$GraphUrl/$GraphVersion/devices?`$filter=operatingSystem eq 'Windows' AND isManaged eq true AND accountEnabled eq true"
+$Devices = Invoke-RestMethod -Uri $Deviceuri -Headers $Headers -Method Get
+$AllDevices += $Devices.value
+while ($Devices.'@odata.nextLink') {
+	$NextBatchRequest = $Devices.'@odata.nextLink'
+	$Devices = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Headers -Method Get
+	$AllDevices += $Devices.value
+}
+$AllDevices = $AllDevices | Where-Object { $PSItem.managementType -eq 'MDM' -and $PSItem.approximateLastSignInDateTime -gt $(Get-Date).AddMonths(-3) }
 
 # Check group members
 $BackupIntuneScriptGroup = 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX'
@@ -247,25 +259,64 @@ $Groupuri = "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members"
 $GroupMembers = Invoke-RestMethod -Uri $Groupuri -Headers $Headers -Method Get
 
 # For every managed device check if there is a recovery key in AAD
-foreach ($device in $ManagedDevices) {
-    if (($ResolveDevices | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count -gt 0) {
-        "$($device.displayName) KeyFound"
-    } else {
-        "$($device.displayName) KeyNotFound"
-        if ($device.deviceId -in $GroupMembers.value.deviceId) {
-            'Already in group'
-        } else {
-            "Adding device to Backup Intune script group"
-            $BodyContent = @{
-                "@odata.id" = "$GraphUri/$GraphVersion/devices/$($device.id)"
-            } | ConvertTo-Json
-            $GroupMemberHeader = @{
-                Authorization = $Headers.Authorization
-                'Content-Type' = 'application/json'
-                }
-            $Response = Invoke-RestMethod -Method POST -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupMemberHeader -Body $BodyContent
-        }
-    }
+$Results = @()
+try {
+	foreach ($device in $AllDevices) {
+		if (($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count -gt 0) {
+			if ($device.deviceId -in $GroupMembers.value.deviceId) {
+				$GroupHeader = @{
+					Authorization = $Headers.Authorization
+				}
+				$Response = Invoke-RestMethod -Method DELETE -Uri "$GraphUrl/$GraphVersion/groups/$BackupIntuneScriptGroup/members/$($device.id)/`$ref" -Headers $GroupHeader
+				$Results += [PSCustomObject]@{
+					DeviceName       = $device.displayName
+					DeviceId         = $device.deviceId
+					RecoveryKeyInAAD = $true
+					Action           = 'Removed from group'
+					AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
+				} | ConvertTo-Json
+			} else {
+				$Results += [PSCustomObject]@{
+					DeviceName       = $device.displayName
+					DeviceId         = $device.deviceId
+					RecoveryKeyInAAD = $true
+					Action           = 'None'
+					AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
+				} | ConvertTo-Json
+			}
+		} else {
+			if ($device.displayName -in $GroupMembers.value.displayName) {
+				$Results += [PSCustomObject]@{
+					DeviceName       = $device.displayName
+					DeviceId         = $device.deviceId
+					RecoveryKeyInAAD = $false
+					Action           = 'None'
+					AdditionalInfo   = 'Already in group'
+				} | ConvertTo-Json
+			} else {
+				$BodyContent = @{
+					"@odata.id" = "$GraphUrl/$GraphVersion/devices/$($device.id)"
+				} | ConvertTo-Json
+				$GroupHeader = @{
+					Authorization  = $Headers.Authorization
+					'Content-Type' = 'application/json'
+				}
+
+				$Response = Invoke-RestMethod -Method POST -Uri "$GraphUrl/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupHeader -Body $BodyContent
+				$Results += [PSCustomObject]@{
+					DeviceName       = $device.displayName
+					DeviceId         = $device.deviceId
+					RecoveryKeyInAAD = $false
+					Action           = 'Added to backup group'
+					AdditionalInfo   = ''
+				} | ConvertTo-Json
+			}
+		}
+	}
+} catch {
+	Write-Error $device
+	Write-Error $_
+	break
 }
 ```
 
