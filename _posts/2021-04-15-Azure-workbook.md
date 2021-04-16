@@ -92,12 +92,12 @@ When ready create a new workbook!
 
 You can start with providing some description
 
-![azure7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure7.png)
+![Azure7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure7.png)
 
 Next, add **parameter section**.
 It allows you to easily manipulate data and visualizations that are presented in your report.
 
-![azure8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure8.png)
+![Azure8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure8.png)
 
 Parameters can take many different types, for this report you will need:
 
