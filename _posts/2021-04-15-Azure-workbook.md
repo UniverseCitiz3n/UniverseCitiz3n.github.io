@@ -156,7 +156,8 @@ You should be able to see results in form of table:
 ![azure11]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure11.png)
 
 Another great feature of `azure workbooks` is that you can create actions within report!
-Lets say that you want to select device on list and take a quick look on it in Intune console.
+Lets say that you want to select device on a list and take a quick look on it in Intune console.
+
 YES YOU CAN 😁
 
 Start with modifying query section to allow it to export data as parameters:
@@ -171,7 +172,7 @@ Now, create a new section of type links/tabs, select action **custom view** and 
 
 In configuration pane for custom view choose **url** and pase this
 
-https://portal.azure.com/#blade/Microsoft_Intune_Devices/DeviceSettingsBlade/overview/mdmDeviceId/{deviceId}
+https://portal.azure.com/#blade/Microsoft_Intune_Devices/DeviceSettingsBlade/overview/mdmDeviceId/
 
 ![azure15]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-04-15/azure15.png)
 
