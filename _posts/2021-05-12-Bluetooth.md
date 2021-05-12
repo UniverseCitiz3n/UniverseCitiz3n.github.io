@@ -85,7 +85,7 @@ Now you can apply policy to your test machine and see if it works 😉.
 
 # Find more UUIDs
 
-When restriction such as above is applied where is always slight chance that you missed something or there are thing that you were not aware of!
+When restriction such as above is applied there is always slight chance that you missed something or there are thing that you were not aware of!
 
 To find devices that are blocked by policy you can simply open `Device manager` on the device and search for items with ⚠ next to the icon.
 When you go into details you might see something like:
