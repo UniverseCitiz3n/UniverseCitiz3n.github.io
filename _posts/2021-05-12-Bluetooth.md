@@ -110,7 +110,9 @@ That ID contains bluetooth service UUID which can be added to Intune policy whic
 # Summary
 
 Such approach to handling bluetooth restrictions looks to me to be very clever.
+
 Having possibility to use unique identifiers to tweak policies (and don't bother is it ABC3000 or XYZ9000) makes life easier!
+
 Thanks IEEE 802.15 and Microsoft
 
 See you in next! 😉 🧠
