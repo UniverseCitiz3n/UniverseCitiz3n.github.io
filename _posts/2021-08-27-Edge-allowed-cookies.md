@@ -23,7 +23,8 @@ Configuring Intune MDM polices sometimes is tricky.
 Especially when you are migrating baseline Group Policies.
 First of all, do not migrate everything AS IS 😣.
 Take a look at the Microsoft Security Baseline, tweak it to your needs, apply it to some pilot group and then build-up.
-But what about Settings catalog limitation?
+
+But what's about Settings catalog limitation?
 
 # List of items
 
@@ -69,7 +70,8 @@ Enter desired name for policy and continue
 
 ![7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/7.png)
 
-Now what do you want to with `Value` ??
+Now what should I do with `Value` ??
+
 I've created policy with a few urls using `Settings catalog` and applied them to the device.
 Then I took a look at the events from DeviceManagement-Enterprise-Diagnostics-Provider and found out that `value` should look like
 
@@ -82,13 +84,13 @@ Not bad.
 But!
 
 This separation between number, link and another item is not SPACE BAR ❗❗
-It is special character encoded as `&#xF000;` and as that it all should be `glued`
+It is special character encoded as `&#xF000;`, and with that it all should be `glued`
 
 ```html
 <enabled/><data id="CookiesAllowedForUrlsDesc" value="1&#xF000;[*.]cemLT.pl&#xF000;2&#xF000;[*.]asdrW.pl"/>
 ```
 
-And knowing that finally I can create my policy with 100 and more items!
+Knowing that, finally I can create my policy with 100 and more items!
 
 # Dummy items
 
