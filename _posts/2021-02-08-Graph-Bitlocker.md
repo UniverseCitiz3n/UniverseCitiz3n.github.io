@@ -199,7 +199,7 @@ $Bitlockerheader = @{
 }
 
 $bitlockerkeys = @()
-$Bitlockeruri = "$GraphUrl/$GraphVersion/bitlocker/recoveryKeys"
+$Bitlockeruri = "$GraphUri/$GraphVersion/bitlocker/recoveryKeys"
 $bitlockerkeysuri = Invoke-RestMethod -Uri $Bitlockeruri -Headers $Bitlockerheader -Method Get
 $bitlockerkeys += $bitlockerkeysuri.value
 while ($bitlockerkeysuri.'@odata.nextLink') {
@@ -243,7 +243,7 @@ Now go to your `runbook` and expand it with following code
 ```powershell
 # Get all AAD devices and filter out Windows managed by Intune
 $AllDevices = @()
-$Deviceuri = "$GraphUrl/$GraphVersion/devices?`$filter=operatingSystem eq 'Windows' AND isManaged eq true AND accountEnabled eq true"
+$Deviceuri = "$GraphUri/$GraphVersion/devices?`$filter=operatingSystem eq 'Windows' AND isManaged eq true AND accountEnabled eq true"
 $Devices = Invoke-RestMethod -Uri $Deviceuri -Headers $Headers -Method Get
 $AllDevices += $Devices.value
 while ($Devices.'@odata.nextLink') {
@@ -267,7 +267,7 @@ try {
 				$GroupHeader = @{
 					Authorization = $Headers.Authorization
 				}
-				$Response = Invoke-RestMethod -Method DELETE -Uri "$GraphUrl/$GraphVersion/groups/$BackupIntuneScriptGroup/members/$($device.id)/`$ref" -Headers $GroupHeader
+				$Response = Invoke-RestMethod -Method DELETE -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/$($device.id)/`$ref" -Headers $GroupHeader
 				$Results += [PSCustomObject]@{
 					DeviceName       = $device.displayName
 					DeviceId         = $device.deviceId
@@ -295,14 +295,14 @@ try {
 				} | ConvertTo-Json
 			} else {
 				$BodyContent = @{
-					"@odata.id" = "$GraphUrl/$GraphVersion/devices/$($device.id)"
+					"@odata.id" = "$GraphUri/$GraphVersion/devices/$($device.id)"
 				} | ConvertTo-Json
 				$GroupHeader = @{
 					Authorization  = $Headers.Authorization
 					'Content-Type' = 'application/json'
 				}
 
-				$Response = Invoke-RestMethod -Method POST -Uri "$GraphUrl/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupHeader -Body $BodyContent
+				$Response = Invoke-RestMethod -Method POST -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupHeader -Body $BodyContent
 				$Results += [PSCustomObject]@{
 					DeviceName       = $device.displayName
 					DeviceId         = $device.deviceId
