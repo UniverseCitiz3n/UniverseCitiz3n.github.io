@@ -182,7 +182,7 @@ Authorization = "Bearer " + $ResponseJSON.access_token
 }
 
 #Run API call
-$Deviceuri = "$GraphUri/$GraphVersion/devices'
+$Deviceuri = "$GraphUri/$GraphVersion/devices"
 $AllDevices = Invoke-RestMethod -Uri $Deviceuri -Headers $Headers -Method Get
 ```
 
