@@ -54,18 +54,31 @@ How to renew it? You need to create some activity within environment.
 From my experience it does not have to be anything complicated.
 I had periods when I signed-in to tenant clicked through some stuff once in 3 months and it was sufficient 😁
 
-![someimage]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-macos-1.jpg)
+# Windows and Office 365 deployment lab kit
 
-Punkty:
+Second part of your sandbox is **Hyper-v** lab.
+The labs in the kit cover using Microsoft Endpoint Configuration Manager, Desktop Analytics (which is now deprecated), the Office Customization Tool, OneDrive, Windows Autopilot, and more.
 
-* Service account in AD which has rights to create, rename computer objects in specified OU
-* Organizational Unit which will store computer objects
-* Connectivity to domain controller from Mac device
+What you get in the kit:
 
-``` powershell
+* Windows 10/11 Enterprise
+* Windows 7 Enterprise
+* Microsoft Endpoint Configuration Manager, Version 2107
+* Windows Assessment and Deployment Kit for Windows 11/10
+* Microsoft Deployment Toolkit
+* Microsoft BitLocker Administration and Monitoring
+* Windows Server 2022/2019
+* Microsoft SQL Server
 
-Write-Host 'This is a code'
+This environment has 90 days evaluation period and more or less after that time Microsoft releases updated version of the kit.
 
-```
+To get your own setup go [here](https://docs.microsoft.com/en-us/microsoft-365/enterprise/modern-desktop-deployment-and-management-lab).
+
+# Summary
+
+Now you have all the tools to create, test, break and learn!
+
+Checkout next part of this series to see how to slightly improve your lab. 
+
 See you in next! 😉 🧠
 
