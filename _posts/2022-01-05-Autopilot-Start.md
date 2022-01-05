@@ -52,7 +52,7 @@ Where is a catch? Such sandbox has renewable expiration period of 90 days.
 
 How to renew it? You need to create some activity within environment.
 From my experience it does not have to be anything complicated.
-I had periods when I signed-in to tenant clicked through some stuff once in 3 months and it was sufficient 😁
+I had periods of time when I signed-in to tenant clicked through some stuff once in 3 months and it was sufficient 😁
 
 # Windows and Office 365 deployment lab kit
 
