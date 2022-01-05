@@ -300,3 +300,11 @@ defaults:
       layout: single
       classes: wide
       author_profile: false
+  # _autopilot
+  - scope:
+      path: ""
+      type: autopilot
+    values:
+      layout: single
+      author_profile: false
+      share: true

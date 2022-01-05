@@ -8,9 +8,11 @@ main:
     url: /events/
   - title: "Publications"
     url: "https://leanpub.com/psconfbook3/"
-  - title: "Archive Posts"
-    url: /year-archive/
+  - title: "Autopilot"
+    url: /autopilot/
   - title: "Tags"
     url: /tags/
   - title: "Categories"
     url: /categories/
+  - title: "Terms & Conditions"
+    url: /terms/
