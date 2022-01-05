@@ -10,7 +10,7 @@ tags:
     - Microsoft365
 
 excerpt: Prepare your own sandbox  
-
+collection: autopilot
 comments: true
 toc: true
 toc_label: Table of contents
