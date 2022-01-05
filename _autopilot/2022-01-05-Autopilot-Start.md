@@ -9,8 +9,7 @@ tags:
     - Intune
     - Microsoft365
 
-excerpt: Prepare your own sandbox  
-collection: autopilot
+excerpt: Prepare your own sandbox
 comments: true
 toc: true
 toc_label: Table of contents
