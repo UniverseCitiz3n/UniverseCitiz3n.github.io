@@ -78,7 +78,7 @@ To get your own setup go [here](https://docs.microsoft.com/en-us/microsoft-365/e
 
 Now you have all the tools to create, test, break and learn!
 
-Checkout next part of this series to see how to slightly improve your lab. 
+Checkout next part of this series to see how to slightly improve your lab.
 
 See you in next! 😉 🧠
 
