@@ -19,7 +19,8 @@ toc_label: Table of contents
 
 # Intro
 
-Hey
+Welcome to the second part of the Autopilot lab.
+If you missed the first part or whish to jump further please visit 
 
 See you in next! 😉 🧠
 
