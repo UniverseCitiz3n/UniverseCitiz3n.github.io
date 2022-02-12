@@ -100,7 +100,7 @@ To be able to move settings catalog profile between tenants we need set of polic
 
 So go to the profile that you wish to move and `Edit` profile
 
-![DevTools6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/6.png)
+![DevTools7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/7.png)
 
 You do not need to make any changes!
 Just click `Review + save` and `Save` to capture request that goes after you click `Save`.
