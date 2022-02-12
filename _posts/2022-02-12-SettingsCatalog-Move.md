@@ -21,7 +21,7 @@ toc_label: Table of contents
 As the saying goes...do not develop/test on production...so we (IT Pros) work on some kind of sandbox environment.
 This comes with **pros** and **cons** but that is not what I particularly want to focus on (though it is kind of connected with cons).
 
-Let me show you a neat trick that I've learned during one of the Ignite sessions last year! ❤️‍🔥
+Let me show you how I've leveraged a neat trick that I've learned during one of the Ignite sessions last year! ❤️‍🔥
 
 # Edge DevTools
 
