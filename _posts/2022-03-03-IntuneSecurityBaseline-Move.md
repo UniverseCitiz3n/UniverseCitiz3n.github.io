@@ -50,7 +50,7 @@ Choose baseline area (let's stick with Win 10)
 
 Enter profile name, description and continue.
 
-For presentation pourposes I've changed one setting and the rest is left as Microsoft recommends.
+For presentation purposes I've changed one setting and the rest is left as Microsoft recommends.
 
 ![MDM4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/4.png)
 
@@ -80,13 +80,13 @@ $Categories = Invoke-RestMethod -UseBasicParsing -Uri 'https://graph.microsoft.c
   -Headers $Header 
 ```
 
-With this now you will be able to read values for each setting of discovered categories.
+With this now you will be able to read values for each setting in discovered categories.
 You need:
 
 * Intent ID - MDM Security baseline profile GUID
 * Category ID - GUID of category from code above
 
-With this simple loop you will read entire baseline profile which later can be used as an input for create/update request.
+Using this simple loop you will read entire baseline profile which later can be used as an input for create/update request.
 
 ```powershell
 # YOUR PROFILE GUID
@@ -103,13 +103,13 @@ $Settings = foreach ($Setting in $Categories.value) {
 }
 ```
 
-Now we have set value for every single setting within Windows 10 MDM Security Baseline! 😎🎉
+Now we have values for every single setting within Windows 10 MDM Security Baseline! 😎🎉
 
 # Move MDM Security Baseline profile
 
 When creating or updating MDM Security Baseline profile in `Body` of request you need to specify list of settings and values you wish to set.
 
-First step you've got covered - read security baseline profile (from test tenant 😉)
+First step we've got covered - read security baseline profile (from test tenant 😉)
 
 Second step create production profile:
 
