@@ -20,7 +20,7 @@ toc_label: Table of contents
 
 Hi there!
 
-In this post I'd like to share how to read **Settings Catalog** profile with Powershell, covert it to digestable JSON format that will allow you to import it back to your tenant or every other!
+In this post I'd like to share how to read **Settings Catalog** profile with Powershell, convert it to digestible JSON format that will allow you to import it back to your tenant or every other!
 
 # Export
 
@@ -79,7 +79,7 @@ To make our policies useable down the pipeline we need to rebuild it into compat
 
 # Fix
 
-To make it work you need to create JSON object that fol strickt format.
+To make it work you need to create JSON object that fol strick format.
 
 Thankfuly throught Powershell that's easy!
 
@@ -137,7 +137,7 @@ Below you can find example how it should look like:
 
 # Import
 
-Depending on your need you will be passing JSON body stright from Powershell session cache or from file and that's totally up to you.
+Depending on your need you will be passing JSON body straight from Powershell session cache or from file and that's totally up to you.
 
 To create new **Settings Catalog** policy just grab your profile body and pass it to `POST` request
 
@@ -158,6 +158,6 @@ $NewConfigPolicy = Invoke-RestMethod @restParam
 # Summary
 
 I've provided RAW materials for you to build your functions over those.
-Everyone has their unique set of needs so I hope that this post will jumpstart your journey with Settings Catalog and PowerShell!
+Everyone has their unique set of needs so I hope that this post will jump start your journey with Settings Catalog and PowerShell!
 
 See you in next! 😉 🧠
