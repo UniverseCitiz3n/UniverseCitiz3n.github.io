@@ -9,7 +9,7 @@ tags:
     - Powershell
     - Intune
 
-excerpt: At fist it looked easy but then...
+excerpt: At first it looked easy but then...
 
 comments: true
 toc: true
