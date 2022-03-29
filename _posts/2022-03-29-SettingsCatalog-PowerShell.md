@@ -20,7 +20,7 @@ toc_label: Table of contents
 
 Hi there!
 
-In this post I'd like to share how to read **Settings Catalog** profile with raw Powershell  
+In this post I'd like to share how to read **Settings Catalog** profile with Powershell, covert it to digestable JSON format that will allow you to import it back to your tenant or every other!
 
 # Export
 
@@ -79,88 +79,85 @@ To make our policies useable down the pipeline we need to rebuild it into compat
 
 # Fix
 
-From now on you are a Intune Microsoft Graph Master 😁
+To make it work you need to create JSON object that fol strickt format.
 
-Let's see what hides in copied code...
-
-```powershell
-$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
-$session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.50"
-Invoke-WebRequest -UseBasicParsing -Uri "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('0d15031a-fd95-4202-a43d-da63117070b8')" `
--WebSession $session `
--Headers @{
-"x-ms-client-session-id"="97b2957ca94944f1bf9b5990939c04b0"
-  "X-Content-Type-Options"="nosniff"
-  "Accept-Language"="en"
-  "Authorization"="Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Im5idkVmeXd2RExnSjJaMG9BdlRna0xMTmFvREZYdHJHSlRLUEZ1cEdEZ00iLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvYTUxZDgyNzYtYThjYS00NmEyLTg3NjUtYjE2ZjJmN2U1ZTZhLyIsImlhdCI6MTY0NDY3NjYzMiwibmJmIjoxNjQ0Njc2NjMyLCJleHAiOjE2NDQ2ODE5MzYsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJFMlpnWUJEWWVlYTZXdGlWN01mQ241ZHNXTFNpWlZQeE9nUHVob1ZjQVF6K01UL1pBK0lCIiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJNaWNyb3NvZnQgSW50dW5lIHBvcnRhbCBleHRlbnNpb24iLCJhcHBpZCI6IjU5MjZmYzhlLTMwNGUtNGY1OS04YmVkLTU4Y2E5N2NjMzlhNCIsImFwcGlkYWNyIjoiMiIsImNvbnRyb2xzIjpbImNhX2VuZiJdLCJmYW1pbHlfbmFtZSI6IkhvcmJhY3oiLCJnaXZlbl9uYW1lIjoiTWFjaWVqIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODkuNjQuMTE5LjIxNCIsIm5hbWUiOiJNYWNpZWogSG9yYmFjeiIsIm9pZCI6ImNmMWYwNTI1LWQzMjYtNDVmMy1iYTBlLWZkMDhkYjA3OTM0ZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMDk2M0IwMzQ0IiwicmgiOiIwLkFVY0Fkb0lkcGNxb29rYUhaYkZ2TDM1ZWFnTUFBQUFBQUFBQXdBQUFBQUFBQUFCSEFMMC4iLCJzY3AiOiJDbG91ZFBDLlJlYWQuQWxsIENsb3VkUEMuUmVhZFdyaXRlLkFsbCBEZXZpY2VNYW5hZ2VtZW50QXBwcy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRDb25maWd1cmF0aW9uLlJlYWRXcml0ZS5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlByaXZpbGVnZWRPcGVyYXRpb25zLkFsbCBEZXZpY2VNYW5hZ2VtZW50TWFuYWdlZERldmljZXMuUmVhZFdyaXRlLkFsbCBEZXZpY2VNYW5hZ2VtZW50UkJBQy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRTZXJ2aWNlQ29uZmlndXJhdGlvbi5SZWFkV3JpdGUuQWxsIERpcmVjdG9yeS5BY2Nlc3NBc1VzZXIuQWxsIGVtYWlsIG9wZW5pZCBwcm9maWxlIFNpdGVzLlJlYWQuQWxsIiwic3ViIjoiNkw5Q1hJeTRsckJPMGZ3RGVIaldCMDZUOGtLOXVBT3c2UnhLS0VYLTN0OCIsInRlbmFudF9yZWdpb25fc2NvcGUiOiJFVSIsInRpZCI6ImE1MWQ4Mjc2LWE4Y2EtNDZhMi04NzY1LWIxNmYyZjdlNWU2YSIsInVuaXF1ZV9uYW1lIjoibWFjaWVqaG9yYmFjekBkdW5lc2JveC5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJtYWNpZWpob3JiYWN6QGR1bmVzYm94Lm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6ImllckFtVU9WMlVHQUd0c1RwdllQQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImUzOTczYmRmLTQ5ODctNDlhZS04MzdhLWJhOGUyMzFjNzI4NiIsIjYyZTkwMzk0LTY5ZjUtNDIzNy05MTkwLTAxMjE3NzE0NWUxMCIsImU4NjExYWI4LWMxODktNDZlOC05NGUxLTYwMjEzYWIxZjgxNCIsImIwZjU0NjYxLTJkNzQtNGM1MC1hZmEzLTFlYzgwM2YxMmVmZSIsIjE5NGFlNGNiLWIxMjYtNDBiMi1iZDViLTYwOTFiMzgwOTc3ZCIsImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfc3QiOnsic3ViIjoialU1SWVqSGU5MVpjcDlKdHZLNXV3aWJBN0d5SHZfRjUyMzJqa1dZdUFWYyJ9LCJ4bXNfdGNkdCI6MTU3OTI5NzMxNH0.SuWFMS0iGwVZkM_R1zdRMxOIE3N5Mjf2CQOom_0NHh3yKyS_Gl5FxFeeKcsBS8qkWdI7ybBONOLuoebGlLX69PyjTRnlqob8vHSe3h6DiSMwvMAuTE3GQ0yYMM-EMfN96gHIaDargVjknWb48k7CeQuS5b4I8aNuze-yhItZz0jSthucUXmQQtKWEvyh_HvQdcWMOGbYGaBCZDaTSoocek2FUh4bVli_bhfOkBSC2ZNRTXaZ0jvw27Giw3AB8wd70gPjKHKH-RsUmLhdlqdFGxWwX5sYZ_6JY2yTfIIDiZfVN8OpbyosG6XuUDPt02S"
-  "x-ms-effective-locale"="en.pl-pl"
-  "Accept"="*/*"
-  "Referer"=""
-  "x-ms-client-request-id"="780cb14a-0c3e-4d6b-9160-45f44f6c6ea4"
-  "client-request-id"="780cb14a-0c3e-4d6b-9160-45f44f6c6ea4"
-} `
--ContentType "application/json"
-```
-
-Not much! But all the juice is there 😎
-
-First of all I always change `Invoke-WebRequest` to `Invoke-RestMethod`.
-This makes the request response data easier to handle 😉
-
-So we get Graph API URL, Authorization token and Body (if there is any).
-Those three components of this code are the Heros.
-
-# Move Settings Catalog profile
-
-Finally it now the time for you to perform migration of **Settings Catalog** profile from Sandbox to Prod 😝
-
-Until Microsoft adds a action to Export and Import configuration profiles it is the fastest way without installing any additional software!
-
-To be able to move settings catalog profile between tenants we need set of policies and values that are configured in this profile.
-
-So go to the profile that you wish to move and `Edit` profile
-
-![DevTools7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/7.png)
-
-You do not need to make any changes!
-
-Just click `Review + save` and `Save` to capture request that goes after you click `Save`.
+Thankfuly throught Powershell that's easy!
 
 ```powershell
-$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
-$session.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36 Edg/98.0.1108.50"
-Invoke-RestMethod -UseBasicParsing -Uri "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('0d15031a-fd95-4202-a43d-da63117070b8')" `
--Method "PUT" `
--WebSession $session `
--Headers @{
-"x-ms-client-session-id"="97b2957ca94944f1bf9b5990939c04b0"
-  "X-Content-Type-Options"="nosniff"
-  "Accept-Language"="en"
-  "Authorization"="Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Im5idkVmeXd2RExnSjJaMG9BdlRna0xMTmFvREZYdHJHSlRLUEZ1cEdEZ00iLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvYTUxZDgyNzYtYThjYS00NmEyLTg3NjUtYjE2ZjJmN2U1ZTZhLyIsImlhdCI6MTY0NDY3NjYzMiwibmJmIjoxNjQ0Njc2NjMyLCJleHAiOjE2NDQ2ODE5MzYsImFjY3QiOjAsImFjciI6IjEiLCJhaW8iOiJFMlpnWUJEWWVlYTZXdGlWN01mQ241ZHNXTFNpWlZQeE9nUHVob1ZjQVF6K01UL1pBK0lCIiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJNaWNyb3NvZnQgSW50dW5lIHBvcnRhbCBleHRlbnNpb24iLCJhcHBpZCI6IjU5MjZmYzhlLTMwNGUtNGY1OS04YmVkLTU4Y2E5N2NjMzlhNCIsImFwcGlkYWNyIjoiMiIsImNvbnRyb2xzIjpbImNhX2VuZiJdLCJmYW1pbHlfbmFtZSI6IkhvcmJhY3oiLCJnaXZlbl9uYW1lIjoiTWFjaWVqIiwiaWR0eXAiOiJ1c2VyIiwiaXBhZGRyIjoiODkuNjQuMTE5LjIxNCIsIm5hbWUiOiJNYWNpZWogSG9yYmFjeiIsIm9pZCI6ImNmMWYwNTI1LWQzMjYtNDVmMy1iYTBlLWZkMDhkYjA3OTM0ZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMDk2M0IwMzQ0IiwicmgiOiIwLkFVY0Fkb0lkcGNxb29rYUhaYkZ2TDM1ZWFnTUFBQUFBQUFBQXdBQUFBQUFBQUFCSEFMMC4iLCJzY3AiOiJDbG91ZFBDLlJlYWQuQWxsIENsb3VkUEMuUmVhZFdyaXRlLkFsbCBEZXZpY2VNYW5hZ2VtZW50QXBwcy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRDb25maWd1cmF0aW9uLlJlYWRXcml0ZS5BbGwgRGV2aWNlTWFuYWdlbWVudE1hbmFnZWREZXZpY2VzLlByaXZpbGVnZWRPcGVyYXRpb25zLkFsbCBEZXZpY2VNYW5hZ2VtZW50TWFuYWdlZERldmljZXMuUmVhZFdyaXRlLkFsbCBEZXZpY2VNYW5hZ2VtZW50UkJBQy5SZWFkV3JpdGUuQWxsIERldmljZU1hbmFnZW1lbnRTZXJ2aWNlQ29uZmlndXJhdGlvbi5SZWFkV3JpdGUuQWxsIERpcmVjdG9yeS5BY2Nlc3NBc1VzZXIuQWxsIGVtYWlsIG9wZW5pZCBwcm9maWxlIFNpdGVzLlJlYWQuQWxsIiwic3ViIjoiNkw5Q1hJeTRsckJPMGZ3RGVIaldCMDZUOGtLOXVBT3c2UnhLS0VYLTN0OCIsInRlbmFudF9yZWdpb25fc2NvcGUiOiJFVSIsInRpZCI6ImE1MWQ4Mjc2LWE4Y2EtNDZhMi04NzY1LWIxNmYyZjdlNWU2YSIsInVuaXF1ZV9uYW1lIjoibWFjaWVqaG9yYmFjekBkdW5lc2JveC5vbm1pY3Jvc29mdC5jb20iLCJ1cG4iOiJtYWNpZWpob3JiYWN6QGR1bmVzYm94Lm9ubWljcm9zb2Z0LmNvbSIsInV0aSI6ImllckFtVU9WMlVHQUd0c1RwdllQQUEiLCJ2ZXIiOiIxLjAiLCJ3aWRzIjpbImUzOTczYmRmLTQ5ODctNDlhZS04MzdhLWJhOGUyMzFjNzI4NiIsIjYyZTkwMzk0LTY5ZjUtNDIzNy05MTkwLTAxMjE3NzE0NWUxMCIsImU4NjExYWI4LWMxODktNDZlOC05NGUxLTYwMjEzYWIxZjgxNCIsImIwZjU0NjYxLTJkNzQtNGM1MC1hZmEzLTFlYzgwM2YxMmVmZSIsIjE5NGFlNGNiLWIxMjYtNDBiMi1iZDViLTYwOTFiMzgwOTc3ZCIsImI3OWZiZjRkLTNlZjktNDY4OS04MTQzLTc2YjE5NGU4NTUwOSJdLCJ4bXNfc3QiOnsic3ViIjoialU1SWVqSGU5MVpjcDlKdHZLNXV3aWJBN0d5SHZfRjUyMzJqa1dZdUFWYyJ9LCJ4bXNfdGNkdCI6MTU3OTI5NzMxNH0.SuWFMS0iGwVZkM_R1zdRMxOIE3N5Mjf2CQOom_0NHh3yKyS_Gl5FxFeeKcsBS8qkWdI7ybBONOLuoebGlLX69PyjTRnlqob8vHSe3h6DiSMwvMAuTE3GQ0yYMM-EMfN96gHIaDargVjknWb48k7CeQuS5b4I8aNuze-yhItZz0jSthucUXmQQtKWEvyh_HvQdcWMOGbYGaBCZDaTSoocek2FUh4bVli_bhfOkBSC2ZNRTXaZ0jvw27Giw3AB8wd70gPjKHKH-RsUmLhdlqdFGxWwX5sYZ_6JY2yTfIIDiZfVN8OpbyosG6XuUDPt02S"
-  "x-ms-effective-locale"="en.pl-pl"
-  "Accept"="*/*"
-  "Referer"=""
-  "x-ms-client-request-id"="6e90a57a-1cdd-4bbd-992c-991a561319bb"
-  "client-request-id"="6e90a57a-1cdd-4bbd-992c-991a561319bb"
-} `
--ContentType "application/json" `
--Body "{`"name`":`"Edge`",`"description`":`"`",`"platforms`":`"windows10`",`"technologies`":`"mdm`",`"roleScopeTagIds`":[`"0`"],`"settings`":[{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationSetting`",`"settingInstance`":{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance`",`"settingDefinitionId`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartup`",`"choiceSettingValue`":{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue`",`"value`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartup_1`",`"children`":[{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance`",`"settingDefinitionId`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartup_restoreonstartup`",`"choiceSettingValue`":{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue`",`"value`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartup_restoreonstartup_4`",`"children`":[]}}]}}},{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationSetting`",`"settingInstance`":{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance`",`"settingDefinitionId`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartupurls`",`"choiceSettingValue`":{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationChoiceSettingValue`",`"value`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartupurls_1`",`"children`":[{`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionInstance`",`"settingDefinitionId`":`"device_vendor_msft_policy_config_microsoft_edge~policy~microsoft_edge~startup_restoreonstartupurls_restoreonstartupurlsdesc`",`"simpleSettingCollectionValue`":[{`"value`":`"google.com`",`"@odata.type`":`"#microsoft.graph.deviceManagementConfigurationStringSettingValue`"}]}]}}}],`"templateReference`":{`"templateId`":`"`",`"templateFamily`":`"none`",`"templateDisplayName`":null,`"templateDisplayVersion`":null}}"
+$configPoliciesFormatted = foreach ($Policy in $configPolicies.value) {
+    $restParam = @{
+        Method      = 'Get'
+        Uri         = "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('$($Policy.id)')/settings?`$expand=settingDefinitions&top=1000"
+        Headers     = $authHeaders
+        ContentType = 'Application/json'
+    }
+    $PolicyDetails = Invoke-RestMethod @restParam
+
+    [PSCustomObject]@{
+        name            = $configPolicies.value.name
+        description     = $configPolicies.value.description
+        platforms       = $configPolicies.value.platforms
+        technologies    = $configPolicies.value.technologies
+        roleScopeTagIds = @($configPolicies.value.roleScopeTagIds)
+        settings        = @(@{'settingInstance' = $configPoliciesDetails.value.settinginstance })
+    }
+}
+
+$PolicyJSON = $configPoliciesFormatted | ConvertTo-Json -Depth 99
 ```
 
-Change `Method` to `POST`...
-Now with THAT you can create infinite number of this configuration profile anywhere! 🪄
+Now we have exported profile ready to be imported.
+Below you can find example how it should look like:
 
-Only one condition must be met
+```json
+{
+    "name": "MDMWinOverGPO",
+    "description": "",
+    "platforms": "windows10",
+    "technologies": "mdm",
+    "roleScopeTagIds": [
+        "0"
+    ],
+    "settings": [
+        {
+            "settingInstance": {
+                "@odata.type": "#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance",
+                "settingDefinitionId": "device_vendor_msft_policy_config_controlpolicyconflict_mdmwinsovergp",
+                "settingInstanceTemplateReference": null,
+                "choiceSettingValue": {
+                    "settingValueTemplateReference": null,
+                    "value": "device_vendor_msft_policy_config_controlpolicyconflict_mdmwinsovergp_1",
+                    "children": []
+                }
+            }
+        }
+    ]
+}
+```
 
-* You need working `Authorization` token for destination tenant
+# Import
 
-How to get token?
-Well that is easy, just sign in to destination tenat and using `DevTools` trick copy token for that environment and make changes to the code.
+Depending on your need you will be passing JSON body stright from Powershell session cache or from file and that's totally up to you.
+
+To create new **Settings Catalog** policy just grab your profile body and pass it to `POST` request
+
+```powershell
+
+$restParam = @{
+    Method      = 'Post'
+    Uri         = 'https://graph.microsoft.com/beta/deviceManagement/configurationPolicies'
+    Headers     = $authHeaders
+    ContentType = 'Application/json'
+    Body        = $PolicyJSON
+}
+
+$NewConfigPolicy = Invoke-RestMethod @restParam
+
+```
 
 # Summary
 
-I get shivers thinking that I would have to manualy recreate every single setting I've set 😖
-
-With that I've saved a lot of time moving from simple profile to such that contain dozens of policies!!
+I've provided RAW materials for you to build your functions over those.
+Everyone has their unique set of needs so I hope that this post will jumpstart your journey with Settings Catalog and PowerShell!
 
 See you in next! 😉 🧠
