@@ -2,11 +2,12 @@
 title: How to easily move MDM Security Baseline profile
 categories:
 
-    - Powershell
+    - Intune
 
 tags:
 
     - Intune
+    - Powershell
     - MicrosoftEdge
 
 excerpt: This is a game changer for me 😲

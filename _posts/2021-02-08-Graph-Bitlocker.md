@@ -103,7 +103,7 @@ Additionally you can search for key by providing its ID here
 
 # Graph API
 
-## Prerequisites 
+## Prerequisites
 
 In november 2020 Microsoft provided beta API to `list` all keys and `get` key details using `Microsoft Graph`.
 Well...at last!😑
@@ -203,9 +203,9 @@ $Bitlockeruri = "$GraphUri/$GraphVersion/bitlocker/recoveryKeys"
 $bitlockerkeysuri = Invoke-RestMethod -Uri $Bitlockeruri -Headers $Bitlockerheader -Method Get
 $bitlockerkeys += $bitlockerkeysuri.value
 while ($bitlockerkeysuri.'@odata.nextLink') {
-	$NextBatchRequest = $bitlockerkeysuri.'@odata.nextLink'
-	$bitlockerkeysuri = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Bitlockerheader -Method Get
-	$bitlockerkeys += $bitlockerkeysuri.value
+ $NextBatchRequest = $bitlockerkeysuri.'@odata.nextLink'
+ $bitlockerkeysuri = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Bitlockerheader -Method Get
+ $bitlockerkeys += $bitlockerkeysuri.value
 }
 ```
 
@@ -247,9 +247,9 @@ $Deviceuri = "$GraphUri/$GraphVersion/devices?`$filter=operatingSystem eq 'Windo
 $Devices = Invoke-RestMethod -Uri $Deviceuri -Headers $Headers -Method Get
 $AllDevices += $Devices.value
 while ($Devices.'@odata.nextLink') {
-	$NextBatchRequest = $Devices.'@odata.nextLink'
-	$Devices = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Headers -Method Get
-	$AllDevices += $Devices.value
+ $NextBatchRequest = $Devices.'@odata.nextLink'
+ $Devices = Invoke-RestMethod -Uri $NextBatchRequest -Headers $Headers -Method Get
+ $AllDevices += $Devices.value
 }
 $AllDevices = $AllDevices | Where-Object { $PSItem.managementType -eq 'MDM' -and $PSItem.approximateLastSignInDateTime -gt $(Get-Date).AddMonths(-3) }
 
@@ -261,62 +261,62 @@ $GroupMembers = Invoke-RestMethod -Uri $Groupuri -Headers $Headers -Method Get
 # For every managed device check if there is a recovery key in AAD
 $Results = @()
 try {
-	foreach ($device in $AllDevices) {
-		if (($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count -gt 0) {
-			if ($device.deviceId -in $GroupMembers.value.deviceId) {
-				$GroupHeader = @{
-					Authorization = $Headers.Authorization
-				}
-				$Response = Invoke-RestMethod -Method DELETE -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/$($device.id)/`$ref" -Headers $GroupHeader
-				$Results += [PSCustomObject]@{
-					DeviceName       = $device.displayName
-					DeviceId         = $device.deviceId
-					RecoveryKeyInAAD = $true
-					Action           = 'Removed from group'
-					AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
-				} | ConvertTo-Json
-			} else {
-				$Results += [PSCustomObject]@{
-					DeviceName       = $device.displayName
-					DeviceId         = $device.deviceId
-					RecoveryKeyInAAD = $true
-					Action           = 'None'
-					AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
-				} | ConvertTo-Json
-			}
-		} else {
-			if ($device.displayName -in $GroupMembers.value.displayName) {
-				$Results += [PSCustomObject]@{
-					DeviceName       = $device.displayName
-					DeviceId         = $device.deviceId
-					RecoveryKeyInAAD = $false
-					Action           = 'None'
-					AdditionalInfo   = 'Already in group'
-				} | ConvertTo-Json
-			} else {
-				$BodyContent = @{
-					"@odata.id" = "$GraphUri/$GraphVersion/devices/$($device.id)"
-				} | ConvertTo-Json
-				$GroupHeader = @{
-					Authorization  = $Headers.Authorization
-					'Content-Type' = 'application/json'
-				}
+ foreach ($device in $AllDevices) {
+  if (($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count -gt 0) {
+   if ($device.deviceId -in $GroupMembers.value.deviceId) {
+    $GroupHeader = @{
+     Authorization = $Headers.Authorization
+    }
+    $Response = Invoke-RestMethod -Method DELETE -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/$($device.id)/`$ref" -Headers $GroupHeader
+    $Results += [PSCustomObject]@{
+     DeviceName       = $device.displayName
+     DeviceId         = $device.deviceId
+     RecoveryKeyInAAD = $true
+     Action           = 'Removed from group'
+     AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
+    } | ConvertTo-Json
+   } else {
+    $Results += [PSCustomObject]@{
+     DeviceName       = $device.displayName
+     DeviceId         = $device.deviceId
+     RecoveryKeyInAAD = $true
+     Action           = 'None'
+     AdditionalInfo   = "$(($bitlockerkeys | Where-Object { $PSItem.deviceId -eq $device.deviceId } | Measure-Object).Count) keys found"
+    } | ConvertTo-Json
+   }
+  } else {
+   if ($device.displayName -in $GroupMembers.value.displayName) {
+    $Results += [PSCustomObject]@{
+     DeviceName       = $device.displayName
+     DeviceId         = $device.deviceId
+     RecoveryKeyInAAD = $false
+     Action           = 'None'
+     AdditionalInfo   = 'Already in group'
+    } | ConvertTo-Json
+   } else {
+    $BodyContent = @{
+     "@odata.id" = "$GraphUri/$GraphVersion/devices/$($device.id)"
+    } | ConvertTo-Json
+    $GroupHeader = @{
+     Authorization  = $Headers.Authorization
+     'Content-Type' = 'application/json'
+    }
 
-				$Response = Invoke-RestMethod -Method POST -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupHeader -Body $BodyContent
-				$Results += [PSCustomObject]@{
-					DeviceName       = $device.displayName
-					DeviceId         = $device.deviceId
-					RecoveryKeyInAAD = $false
-					Action           = 'Added to backup group'
-					AdditionalInfo   = ''
-				} | ConvertTo-Json
-			}
-		}
-	}
+    $Response = Invoke-RestMethod -Method POST -Uri "$GraphUri/$GraphVersion/groups/$BackupIntuneScriptGroup/members/`$ref" -Headers $GroupHeader -Body $BodyContent
+    $Results += [PSCustomObject]@{
+     DeviceName       = $device.displayName
+     DeviceId         = $device.deviceId
+     RecoveryKeyInAAD = $false
+     Action           = 'Added to backup group'
+     AdditionalInfo   = ''
+    } | ConvertTo-Json
+   }
+  }
+ }
 } catch {
-	Write-Error $device
-	Write-Error $_
-	break
+ Write-Error $device
+ Write-Error $_
+ break
 }
 ```
 
@@ -331,4 +331,3 @@ If some device is missing a key `Intune` will take care of performing backup for
 Now you can rest without worries.
 
 See you in next! 😉 🧠
-

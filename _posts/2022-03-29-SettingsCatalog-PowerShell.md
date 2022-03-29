@@ -1,16 +1,15 @@
 ---
-title: How to easily move Settings Catalog profile
+title: Export, Fix, Import - Settings Catalog
 categories:
 
     - Intune
 
 tags:
 
-    - Intune
     - Powershell
-    - MicrosoftEdge
+    - Intune
 
-excerpt: With this simple trick, you can save a lot of time 😁
+excerpt: At fist it looked easy but then...
 
 comments: true
 toc: true
@@ -19,46 +18,66 @@ toc_label: Table of contents
 
 # Intro
 
-As the saying goes...do not develop/test on production...so we (IT Pros) work on some kind of sandbox environment.
-This comes with **pros** and **cons** but that is not what I particularly want to focus on (though it is kind of connected with cons).
+Hi there!
 
-Let me show you how I've leveraged a neat trick that I've learned during one of the Ignite sessions last year! ❤️‍🔥
+In this post I'd like to share how to read **Settings Catalog** profile with raw Powershell  
 
-# Edge DevTools
+# Export
 
-You may know or not but **Microsoft Endpoint Manager admin center** is heavily dependent on Graph API calls!
-When you go to any section, open configuration profile, create new one, wipe device, export report or whatever you name it, underneath you are calling Microsoft Graph API call.
+At this moment the only option to export any Intune configuration is to use **Microsoft Graph**.
+Additionally **Settings Catalog** profiles can be duplicated 🪄.
 
-For me it is awesome because I do not need to go to Microsoft Docs to search what Graph Uri I need to do X or Y.
-I just need to open **Edge DevTools** and make an action through admin center portal.
+But why if you would like to create local copy of profiles or move them to another tenant?
 
-To open **DevTools** just press `F12` or `CTRL + SHIFT + I` on your keyboard.
-Then go to **Network**
+I've already done post on fast and easy way to move Settings Catalog using Microsoft Edge and Powershell.
+[Read more...](https://universecitiz3n.tech/powershell/SettingsCatalog-Move/)
 
-![DevTools]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/1.png)
+Fristly we need id's of profiles so let's get that
 
-There you will be able to see traffic that comes and goes but that is not all! 🤔
+```powershell
+$params = @{
+    #Microsoft Intune Powershell
+    ClientId = 'd1ddf0e4-d672-4dae-b554-9d5bdfd93547'
+    TenantId = 'YOURTENANTNAME.onmicrosoft.com'
+    DeviceCode = $true
+}
+$authHeaders = @{Authorization = (Get-MsalToken @params).CreateAuthorizationHeader()}
 
-![DevTools2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/2.png)
+$restParam = @{
+    Method      = 'Get'
+    Uri         = 'https://graph.microsoft.com/beta/deviceManagement/configurationPolicies'
+    Headers     = $authHeaders
+    ContentType = 'Application/json'
+}
 
-At the beginning it might be all gibberish
+$configPolicies = Invoke-RestMethod @restParam
+$configPolicies.value
 
-![DevTools3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/3.png)
+```
 
-But use `Filter` bar and all becomes much better
+That's easy and painless 😊
 
-![DevTools4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/4.png)
+![PS1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-29/1.png)
 
-Now that we have only request that have some value for us let's pick first one and see what it does.
-When you go to request details you can see exact Graph API URL that was sent to get the data for a blade.
+Now that we have that list we can iterate through it to get details of every policy.
 
-![DevTools5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/5.png)
+```powershell
+$configPoliciesDetails = foreach ($Policy in $configPolicies.value) {
+    $restParam = @{
+        Method      = 'Get'
+        Uri         = "https://graph.microsoft.com/beta/deviceManagement/configurationPolicies('$($Policy.id)')/settings?`$expand=settingDefinitions&top=1000"
+        Headers     = $authHeaders
+        ContentType = 'Application/json'
+    }
+    Invoke-RestMethod @restParam
+}
+```
 
-After you determine which request is the one that you are interested in now it is time for promised trick!!!
+![PS2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-29/2.png)
 
-`Right click` on request and navigate to `Copy` and there you have it: `Copy as PowerShell` 🚀
+To make our policies useable down the pipeline we need to rebuild it into compatible JSON form (～￣▽￣)～
 
-# PowerShell Request
+# Fix
 
 From now on you are a Intune Microsoft Graph Master 😁
 
