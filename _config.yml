@@ -311,5 +311,6 @@ defaults:
       type: autopilot
     values:
       layout: single
+      classes: wide2
       author_profile: false
       share: true
