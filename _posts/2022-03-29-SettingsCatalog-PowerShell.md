@@ -79,7 +79,7 @@ To make our policies useable down the pipeline we need to rebuild it into compat
 
 # Fix
 
-To make it work you need to create JSON object that fol strick format.
+To make it work you need to create JSON object that follow strick format.
 
 Thankfuly throught Powershell that's easy!
 
