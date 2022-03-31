@@ -35,30 +35,30 @@ I just need to open **Edge DevTools** and make an action through admin center po
 To open **DevTools** just press `F12` or `CTRL + SHIFT + I` on your keyboard.
 Then go to **Network**
 
-![DevTools]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/1.png)
+![DevTools]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/1.png)
 
 There you will be able to see traffic that comes and goes but that is not all! 🤔
 
-![DevTools2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/2.png)
+![DevTools2]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/2.png)
 
 At the beginning it might be all gibberish
 
-![DevTools3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/3.png)
+![DevTools3]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/3.png)
 
 But use `Filter` bar and all becomes much better
 
-![DevTools4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/4.png)
+![DevTools4]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/4.png)
 
 Now that we have only request that have some value for us let's pick first one and see what it does.
 When you go to request details you can see exact Graph API URL that was sent to get the data for a blade.
 
-![DevTools5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/5.png)
+![DevTools5]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/5.png)
 
 After you determine which request is the one that you are interested in now it is time for promised trick!!!
 
 `Right click` on request and navigate to `Copy` and there you have it: `Copy as PowerShell` 🚀
 
-![DevTools6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/6.png)
+![DevTools6]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/6.png)
 
 # PowerShell Request
 
@@ -103,7 +103,7 @@ To be able to move settings catalog profile between tenants we need set of polic
 
 So go to the profile that you wish to move and `Edit` profile
 
-![DevTools7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/7.png)
+![DevTools7]({{ site.url }}/assets/images/posts/2022-02-12-DevTools/7.png)
 
 You do not need to make any changes!
 
