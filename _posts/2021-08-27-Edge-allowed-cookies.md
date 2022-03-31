@@ -30,22 +30,22 @@ But what's about Settings catalog limitation?
 
 I want to configure `Allow cookies on specific sites` and with help of Settings catalog it seems fairly easy! 😎
 
-![1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/1.png)
+![1]({{ site.url }}/assets/images/posts/2021-08-28-Edge/1.png)
 
-![2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/2.png)
+![2]({{ site.url }}/assets/images/posts/2021-08-28-Edge/2.png)
 
-![3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/3.png)
+![3]({{ site.url }}/assets/images/posts/2021-08-28-Edge/3.png)
 
 There you can enter desired sites or import whole bunch of them.
 In my case I'm going to import over 100 dummy sites 😏.
 
-![4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/4.png)
+![4]({{ site.url }}/assets/images/posts/2021-08-28-Edge/4.png)
 
 Click Next, assign, create!
 
 Wait what!? 🤨
 
-![5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/5.png)
+![5]({{ site.url }}/assets/images/posts/2021-08-28-Edge/5.png)
 
 As you may guess now I know what's the issue but it was not so obvious from the start...
 There is a limit of 100 items on that list...
@@ -64,11 +64,11 @@ And found it - `./Vendor/MSFT/Policy/Config/microsoft_edge~Policy~microsoft_edge
 
 Now for creating custom policy
 
-![6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/6.png)
+![6]({{ site.url }}/assets/images/posts/2021-08-28-Edge/6.png)
 
 Enter desired name for policy and continue
 
-![7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-08-28-Edge/7.png)
+![7]({{ site.url }}/assets/images/posts/2021-08-28-Edge/7.png)
 
 Now what should I do with `Value` ??
 
@@ -98,7 +98,7 @@ For my dev environment I've created this teeny-tiny script to generate some dumm
 
 ```powershell
 $String = for($i=1;$i-lt 104;$i++){
-	"$i&#xF000;[*.]$(-join ((65..90) + (97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})).pl&#xF000;"
+ "$i&#xF000;[*.]$(-join ((65..90) + (97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})).pl&#xF000;"
 }
 $String -join ''
 ```
@@ -109,4 +109,3 @@ I hope that I've helped you with this tip!
 You won't find any information in MS Docs about such limitation...
 
 See you in next! 😉 🧠
-

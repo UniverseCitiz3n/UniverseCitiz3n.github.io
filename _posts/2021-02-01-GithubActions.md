@@ -28,6 +28,7 @@ It's `PowerShell` so the most suitable form is `PowerShell` module 📦.
 It's my first 100%, build from scratch module so I had to start with the basics such as [module components and types](https://docs.microsoft.com/en-us/powershell/scripting/developer/module/understanding-a-windows-powershell-module?view=powershell-7.1#module-components-and-types) :
 
 > A module is made up of four basic components:
+ >
  >1. Some sort of code file - usually either a PowerShell script or a managed cmdlet assembly.
  >1. Anything else that the above code file may need, such as additional assemblies, help files, or scripts.
  >1. A manifest file that describes the above files, as well as stores metadata such as author and versioning information.
@@ -52,11 +53,11 @@ New-ModuleManifest -Path .\Intune-App-Sandbox.psd1 -ModuleVersion '1.2' -Author 
 $Public = @(Get-ChildItem -Recurse -Path $PSScriptRoot\Public\*.ps1 | Where-Object { $_ -notmatch '\.Examples.ps1' })
 
 foreach ($import in $Public) {
-	try {
-		. $import.fullname
-	} catch {
-		Write-Error -Message "Failed to import function $($import.fullname): $_"
-	}
+ try {
+  . $import.fullname
+ } catch {
+  Write-Error -Message "Failed to import function $($import.fullname): $_"
+ }
 }
 
 Export-ModuleMember -Function $Public.Basename
@@ -88,9 +89,9 @@ Create or sign in to your account on `PowerShell Gallery` and go to [API Keys](h
 
 Copy generated key and safely store it in your `repository secrets`
 
-![github1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github1.png)
+![github1]({{ site.url }}/assets/images/posts/2021-02-01-github/github1.png)
 
-![github2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github2.png)
+![github2]({{ site.url }}/assets/images/posts/2021-02-01-github/github2.png)
 
 # Create workflow
 
@@ -98,7 +99,7 @@ Github actions workflows are stored at repo location .github/workflows in YAML f
 
 The easiest way to start building your workflows is to creating one from `Actions` tab
 
-![github3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github3.png)
+![github3]({{ site.url }}/assets/images/posts/2021-02-01-github/github3.png)
 
 Before publishing check if your code is holding up to the all good practices out there.
 
@@ -139,7 +140,7 @@ jobs:
             }
 ```
 
-![github4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github4.png)
+![github4]({{ site.url }}/assets/images/posts/2021-02-01-github/github4.png)
 
 After you make sure that it passed the tests you can publish it!
 
@@ -170,13 +171,14 @@ jobs:
 
 This workflow run **only when repository is published as release**.
 
-![github5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github5.png)
+![github5]({{ site.url }}/assets/images/posts/2021-02-01-github/github5.png)
 
-![github6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github6.png)
+![github6]({{ site.url }}/assets/images/posts/2021-02-01-github/github6.png)
 
-![github7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-01-github/github7.png)
+![github7]({{ site.url }}/assets/images/posts/2021-02-01-github/github7.png)
 
 That's all! 🥳
+
 # Summary
 
 From now on **Intune-App-Sandbox** is available as `PowerShell` module!
@@ -188,4 +190,3 @@ Install-Module 'Intune-App-Sandbox'
 ```
 
 See you in next! 😉 🧠
-

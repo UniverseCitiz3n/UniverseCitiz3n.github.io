@@ -30,17 +30,17 @@ Thou you can do it through **Devices->Windows->Configuration Profiles** you shou
 
 To create bluetooth (and more) restrictions policies go to MEM console =
 
-![bt1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt1.png)
+![bt1]({{ site.url }}/assets/images/posts/2021-05-12/bt1.png)
 
 Enter name and description for your policy
 
-![bt2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt2.png)
+![bt2]({{ site.url }}/assets/images/posts/2021-05-12/bt2.png)
 
 Scroll down to the bluetooth settings.
 At first sigh there are 5 switches to toy with but at the very end you can see `Bluetooth allowed services`.
 That's where the magic ✨ happens!
 
-![bt3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt3.png)
+![bt3]({{ site.url }}/assets/images/posts/2021-05-12/bt3.png)
 
 On that list you specify UUIDs of allowed bluetooth protocol services.
 These UUIDs all use the same base UUID with the profile identifiers added to the beginning of the base UUID.
@@ -77,9 +77,9 @@ Your list allowing to use headsets with microphones, mice and keyboard will look
 It contains all services UUIDs related to voice & music and keyboards and mice.
 Save that list as an .csv file and click **Import**.
 
-![bt4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt4.png)
+![bt4]({{ site.url }}/assets/images/posts/2021-05-12/bt4.png)
 
-![bt5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt5.png)
+![bt5]({{ site.url }}/assets/images/posts/2021-05-12/bt5.png)
 
 Now you can apply policy to your test machine and see if it works 😉.
 
@@ -90,7 +90,7 @@ When restriction such as above is applied there is always slight chance that you
 To find devices that are blocked by policy you can simply open `Device manager` on the device and search for items with ⚠ next to the icon.
 When you go into details you might see something like:
 
-![bt6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt6.png)
+![bt6]({{ site.url }}/assets/images/posts/2021-05-12/bt6.png)
 
 Then go to details and search for service UUID. Seems like a few steps...
 Worry not, `PowerShell` will help you with fetching required data.
@@ -103,7 +103,7 @@ $Devices = Get-PnpDevice | where {$psitem.status -eq 'Error'} | sort friendlynam
 And you will get immediately full list of the devices.
 On that list you are interested in property **InstanceId**.
 
-![bt7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-05-12/bt7.png)
+![bt7]({{ site.url }}/assets/images/posts/2021-05-12/bt7.png)
 
 That ID contains bluetooth service UUID which can be added to Intune policy which will lead to resolving issue with this device.
 

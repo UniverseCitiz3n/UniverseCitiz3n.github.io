@@ -33,9 +33,9 @@ Things that will come in handy during troubleshooting:
 
 * dsregcmd /status - cmdlet which shows is device is AAD joined. More [details](https://docs.microsoft.com/pl-pl/azure/active-directory/devices/troubleshoot-device-dsregcmd)
 * Event Viewer - Application and Services Logs:
-    - Microsoft/Windows/AAD
-    - Microsoft/Windows/DeviceManagement-Enterprise-Diagnostics-Provider
-    - Microsoft/Windows/User Device Registration
+  * Microsoft/Windows/AAD
+  * Microsoft/Windows/DeviceManagement-Enterprise-Diagnostics-Provider
+  * Microsoft/Windows/User Device Registration
 * Systeminfo
 
 # BIOS update
@@ -155,15 +155,15 @@ Clear-Tpm
 
 We've gone so far and if device did not join AzureAD at this point we need to give it one last kick-start! If on your device there are Office 365 family apps installed open one of them (it really should not matter but I prefer Word) and go to Account Settings and then click sign out.
 
-![pic1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems.jpg)
+![pic1]({{ site.url }}/assets/images/posts/intune-problems.jpg)
 
-![pic2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems2.jpg)
+![pic2]({{ site.url }}/assets/images/posts/intune-problems2.jpg)
 
 If previous steps did their magic when you sign-in you should see window:
 
-![pic3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/intune-problems3.png)
+![pic3]({{ site.url }}/assets/images/posts/intune-problems3.png)
 
-Click **Yes** and you device should now join AzureAD and after couple of minutes and reboot Intune too. If you bump into error message which says <span style="color:red">**Your device is already managed by an organization**</span> and you are sure that there are no Work or School accounts added in settings your last resort might be to reinstall Windows 😫. It happened to me once and I found no other resolution... 
+Click **Yes** and you device should now join AzureAD and after couple of minutes and reboot Intune too. If you bump into error message which says <span style="color:red">**Your device is already managed by an organization**</span> and you are sure that there are no Work or School accounts added in settings your last resort might be to reinstall Windows 😫. It happened to me once and I found no other resolution...
 
 # Summary
 
@@ -172,4 +172,3 @@ In modern desktop management I think that it all comes down to health of device 
 I hope that you will find those steps useful. Some cases might work after applying one of the remediation's and others will need to be diagnosed and fixed thoroughly. Unless there are some hardware issues with device I think that all the issues can be fixed 😉
 
 See you in next! 😉 🧠
-

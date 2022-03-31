@@ -28,7 +28,7 @@ Multi-factor authentication (MFA) is great security measure. The most common sec
 
 A user raised an issue that he does not receive codes for MFA. Is it cellphone carrier issue? Maybe user changed number and forgot about it? Or something else? First two assumptions were ruled out immediately so I focused on configuration of the service itself. For that I went to **user profile** in **Azure AD** and then to **Authentication methods**. There I saw:
 
-![mfa]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa.jpg)
+![mfa]({{ site.url }}/assets/images/posts/2020-02-25-mfa.jpg)
 
 Duplicated international call prefix 😮. I've removed additional digits - **0048** - and SMS codes began to arrive to user. That was easy! But then wondering came... how many users might have the same issue? 🤔<br>
 To check that I've run:
@@ -42,13 +42,13 @@ select DisplayName,email,phonenumber
 Some sorting and filtering and I ended up with list of around 150 users which fitted in similar pattern where country prefix was doubled. I won't fix it manually!! Let's use some Powershell of MSGraph 😎.<br>
 <font size="36">NOPE</font><br>
 Powershell can't do that and API is (as on 25.02.2020) to be hopefully exposed in [Q1 2020](https://microsoftgraph.uservoice.com/forums/920506-microsoft-graph-feature-requests/suggestions/18493399-expose-user-authentication-phone-and-authenticatio).<br>
-Some quick calculations... 
+Some quick calculations...
 
-![mfa2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa2.gif)
+![mfa2]({{ site.url }}/assets/images/posts/2020-02-25-mfa2.gif)
 
 150 users x 2-5 minutes = 300-750 minutes = **5-12, 5 hours**
 
-![mfa3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa3.gif)
+![mfa3]({{ site.url }}/assets/images/posts/2020-02-25-mfa3.gif)
 
 There must be some way!! Wait a minute... 💡
 
@@ -56,7 +56,7 @@ There must be some way!! Wait a minute... 💡
 
 If I'm not gonna click it then let's make browser click for me 😁 ([Checkout my post about starting with Selenium](https://universecitiz3n.tech/selenium/Selenium-Powershell/)). All I need is list of problematic users with their correct numbers and overview of properties of boxes in authorization methods tab. So to let's take a look at **url** of page while being in MFA tab
 
-https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/<br>**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
+<https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserDetailsMenuBlade/UserAuthMethods/userId/><br>**7af69645-0661-451f-b9fd-4fa36946f164**/adminUnitObjectId/
 
 The only thing that changes is userID which you can grab from AzureAD like that
 
@@ -71,7 +71,7 @@ ObjectId                             DisplayName       UserPrincipalName        
 
 Next thing. I did not expect that providing box properties will be such challenge. Normally you can operate on ID of an item and it will not change. But portal.azure.com proved me wrong! There IDs are randomly generated on every page refresh 😐. But **name** of a box always starts with **__azc-textBox** and at the end there is a digit. At the begging I though that **Phone** box will always have index 0 but this too was incorrect. There is one more box which is every time while you are on this site... top search box!
 
-![mfa4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-02-25-mfa4.jpg)
+![mfa4]({{ site.url }}/assets/images/posts/2020-02-25-mfa4.jpg)
 
 Knowing that I decided not to rely on name of a box entirely but rather on coordinates.<br>So I iterate through first 5
 
@@ -193,4 +193,3 @@ foreach ($userID in $UsersToFix) {
 Thanks to that fixing this issue took around **one hour** where **25 minutes** was runtime of this script. It is not the most efficient way but for now it is the only one so I hope it will be useful for you!
 
 See you in next! 😉 🧠
-

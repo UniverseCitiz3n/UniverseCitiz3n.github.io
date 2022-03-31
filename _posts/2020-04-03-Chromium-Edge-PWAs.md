@@ -25,11 +25,11 @@ Yesterday colleague of mine sent me interesting video - [How to open "multiple i
 
 This whole solution is based on the newest Chromium-Edge so first thing you should do is to migrate your users to it. With the help of Intune it's a piece of cake 😊. Go to apps and click **Add**, select **Microsoft Edge** and proceed with configuration.
 
-![Apps]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03.jpg)
+![Apps]({{ site.url }}/assets/images/posts/2020-04-03.jpg)
 
-![Edge]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_2.jpg)
+![Edge]({{ site.url }}/assets/images/posts/2020-04-03_2.jpg)
 
-![EdgeSum]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_3.jpg)
+![EdgeSum]({{ site.url }}/assets/images/posts/2020-04-03_3.jpg)
 
 Now that it is being deployed we can prepare our Start menu Tiles.
 
@@ -41,17 +41,17 @@ Basically what **installing a site as an app** in Edge is creation of simple sho
 
 But what you can do is modify this like that:
 
-"C:\Program Files (x86)\Microsoft\Edge Dev\Application\msedge_proxy.exe" --profile-directory="Default" --app=https://universecitiz3n.tech/
+"C:\Program Files (x86)\Microsoft\Edge Dev\Application\msedge_proxy.exe" --profile-directory="Default" --app=<https://universecitiz3n.tech/>
 
 And you get link to my blog!😆
 
-![Blog]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_4.jpg)
+![Blog]({{ site.url }}/assets/images/posts/2020-04-03_4.jpg)
 
 That's one app but how about creating multiple apps using Powershell! For this project I've created input data file with:
 
 * App Name
 * Site link
-* App icon 
+* App icon
 
 ``` json
 [
@@ -101,7 +101,7 @@ And that is how we created **Start menu** items which work as **Edge PWAs**!
 Again thanks to Intune this task couldn't be easier!!
 <br>Firstly drag and drop all apps to some group and place group in destined location
 
-![Tiles]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_5.jpg)
+![Tiles]({{ site.url }}/assets/images/posts/2020-04-03_5.jpg)
 
 Secondly export created layout to xml with Powershell
 
@@ -138,11 +138,11 @@ But the rest of the tiles will not be changed.
 
 Such prepared xml can be deployed using Intune. Go to **Configuration profiles**, create **Device restrictions** profile, upload **xml**
 
-![profile]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_6.jpg)
+![profile]({{ site.url }}/assets/images/posts/2020-04-03_6.jpg)
 
-![profile2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_7.jpg)
+![profile2]({{ site.url }}/assets/images/posts/2020-04-03_7.jpg)
 
-![profile3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-04-03_8.jpg)
+![profile3]({{ site.url }}/assets/images/posts/2020-04-03_8.jpg)
 
 And no other settings are required!
 
@@ -151,4 +151,3 @@ And no other settings are required!
 Chromium-Edge PWAs is such great feature! And taking advantage of it is simple a thing!<br>One last thing... **make sure that the icons are somewhere to found the workstation**
 
 See you in next! 😉 🧠
-

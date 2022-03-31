@@ -44,7 +44,7 @@ A task is the scheduled work that the Task Scheduler service performs. A task is
 
 The following illustration shows the task components.
 
-![task]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-08-16-ScheduledTask/taskcomponents.png)
+![task]({{ site.url }}/assets/images/posts/2020-08-16-ScheduledTask/taskcomponents.png)
 
 * Triggers: Task Scheduler uses event or time-based triggers to know when to start a task. Every task can specify one or more triggers to start the task.
 * Actions: These are the actions, the actual work, that is performed by the task. Every task can specify one or more actions to complete its work.

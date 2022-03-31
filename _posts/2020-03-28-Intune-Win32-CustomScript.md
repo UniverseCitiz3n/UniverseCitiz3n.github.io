@@ -71,7 +71,7 @@ If($Process.Exitcode -eq '0'){
 
 There is not much going but it shows how simple it can be to fit installation to your needs. Notice that Intel installer path is **.\Intel\igxpin.exe** it means that Microsoft Intune Management Extension runs installation with current path set to inside of deployed package.
 
-![path]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_1.jpg)
+![path]({{ site.url }}/assets/images/posts/2020-03-28_1.jpg)
 
 Another thing is that after installation is complete I'm exiting the script with specific codes. These are default codes with assigned action. I will explain them later.😉
 
@@ -79,17 +79,17 @@ Another thing is that after installation is complete I'm exiting the script with
 
 Before you will be able create app deploy in Intune you need to wrap your stuff into **.intunewin** format. Go [here](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to get wrapping tool 🎁. Using it is child's play:
 
-![wrap]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_wrap.gif)
+![wrap]({{ site.url }}/assets/images/posts/2020-03-28_wrap.gif)
 
 Prepared package upload to app profile
 
-![wrap2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_2.jpg)
+![wrap2]({{ site.url }}/assets/images/posts/2020-03-28_2.jpg)
 
 # Installation command and return codes
 
 Going further, you will need to specify command for installing your package. Because it is **powershell** script remember to run it with **execution policy bypass** parameter.
 
-![install]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_3.jpg)
+![install]({{ site.url }}/assets/images/posts/2020-03-28_3.jpg)
 
 To find out software uninstall command run code below on device which already has it installed
 
@@ -110,29 +110,29 @@ Installing Intel Graphics drivers requires device reboot. It can be done with in
 
 * will only show Toast notification that your device needs to be restarted after installing distributed software. In your OS language.
 
-![soft]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_4.jpg)
+![soft]({{ site.url }}/assets/images/posts/2020-03-28_4.jpg)
 
 **But only if you allow it**
 
-![softnotif]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_5.jpg)
+![softnotif]({{ site.url }}/assets/images/posts/2020-03-28_5.jpg)
 
 **Hard reboot**
 
 * will too show Toast notification about restart but also force user to reboot the device. And setting **Restart grace period** is good practice.
 
-![grace]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_6.jpg)
+![grace]({{ site.url }}/assets/images/posts/2020-03-28_6.jpg)
 
-![notify]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_8.jpg)
+![notify]({{ site.url }}/assets/images/posts/2020-03-28_8.jpg)
 
 And in summary you will see
 
-![status]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_7.jpg)
+![status]({{ site.url }}/assets/images/posts/2020-03-28_7.jpg)
 
 # Detection rule
 
-Last step of app deployment is verification if software is present on device. You can specify this setting is many different ways: 
+Last step of app deployment is verification if software is present on device. You can specify this setting is many different ways:
 
-![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_9.jpg)
+![detection]({{ site.url }}/assets/images/posts/2020-03-28_9.jpg)
 
 More detailed info you will find [here](https://docs.microsoft.com/en-us/mem/intune/apps/apps-win32-app-management#step-4-detection-rules). In this deployment I decided to use **Custom detection script**
 
@@ -162,7 +162,6 @@ Not zero|Not Empty|Not detected
 Deployment of apps using Win32 allows you to do a lot of magic with great precise! For sure I will play with it a lot.🧙‍♂️<br>
 Sneak peak on deployment status:
 
-![detection]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2020-03-28_10.jpg)
+![detection]({{ site.url }}/assets/images/posts/2020-03-28_10.jpg)
 
 See you in next! 😉 🧠
-

@@ -93,13 +93,13 @@ foreach ($Keys in $RecoveryPasswordsArray) {
 
 Recovery keys are stored in device blade in AAD also in MEM portal
 
-![img1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img1.png)
+![img1]({{ site.url }}/assets/images/posts/2021-02-08/img1.png)
 
-![img2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img2.png)
+![img2]({{ site.url }}/assets/images/posts/2021-02-08/img2.png)
 
 Additionally you can search for key by providing its ID here
 
-![img3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img3.png)
+![img3]({{ site.url }}/assets/images/posts/2021-02-08/img3.png)
 
 # Graph API
 
@@ -112,7 +112,7 @@ Click [here](https://docs.microsoft.com/en-us/graph/api/resources/bitlockerrecov
 I'm interested in listing all recovery keys in AAD.
 To be able to do that you need specific set of permissions
 
-![img4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img4.png)
+![img4]({{ site.url }}/assets/images/posts/2021-02-08/img4.png)
 
 As you can see these are `Delegated` permissions so you will need combination of `user role` and `cloud app` 🤝
 Start with creating user and assign one of the roles from above.
@@ -121,27 +121,27 @@ For increased security use `Azure KeyValut` for password rotation or my [privile
 Next step is creating `app registration` for `Microsoft Graph` calls.
 Go to [apps](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and click on **New registration**
 
-![img5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img5.png)
+![img5]({{ site.url }}/assets/images/posts/2021-02-08/img5.png)
 
 Enter app name and **register**
 
-![img6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img6.png)
+![img6]({{ site.url }}/assets/images/posts/2021-02-08/img6.png)
 
 Next step is to add permissions for your app
 
-![img7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img7.png)
+![img7]({{ site.url }}/assets/images/posts/2021-02-08/img7.png)
 
-![img8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img8.png)
+![img8]({{ site.url }}/assets/images/posts/2021-02-08/img8.png)
 
 Remember to grant **admin consent**
 
-![img9]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img9.png)
+![img9]({{ site.url }}/assets/images/posts/2021-02-08/img9.png)
 
 >NOTE: You can remove default API permissions
 
 You will also need `client secret` to be able to authenticate.
 
-![img10]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img10.png)
+![img10]({{ site.url }}/assets/images/posts/2021-02-08/img10.png)
 
 Copy secret immediately 👈
 
@@ -213,7 +213,7 @@ while ($bitlockerkeysuri.'@odata.nextLink') {
 
 As an result you will receive list of keys
 
-![img11]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img11.png)
+![img11]({{ site.url }}/assets/images/posts/2021-02-08/img11.png)
 
 Alright we've got it!
 But how about taking it further...just bear with me a little more 😁
@@ -225,11 +225,11 @@ Start with creating `PowerShell` script deployment using `Intune`.
 Go to [devices | scripts](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/DevicesMenu/powershell) and create new `Windows 10` configuration.
 Fill out the name and upload your backup script covered in first section of this post
 
-![img12]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img12.png)
+![img12]({{ site.url }}/assets/images/posts/2021-02-08/img12.png)
 
 Assign some AAD group and finish
 
-![img13]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img13.png)
+![img13]({{ site.url }}/assets/images/posts/2021-02-08/img13.png)
 
 Assign additional permissions to your application:
 
@@ -322,7 +322,7 @@ try {
 
 Output
 
-![img14]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-08/img14.png)
+![img14]({{ site.url }}/assets/images/posts/2021-02-08/img14.png)
 
 # Summary
 

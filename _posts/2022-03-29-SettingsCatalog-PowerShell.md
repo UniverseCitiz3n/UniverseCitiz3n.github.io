@@ -57,7 +57,7 @@ $configPolicies.value
 
 That's easy and painless 😊
 
-![PS1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-29/1.png)
+![PS1]({{ site.url }}/assets/images/posts/2022-03-29/1.png)
 
 Now that we have that list we can iterate through it to get details of every policy.
 
@@ -73,7 +73,7 @@ $configPoliciesDetails = foreach ($Policy in $configPolicies.value) {
 }
 ```
 
-![PS2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-29/2.png)
+![PS2]({{ site.url }}/assets/images/posts/2022-03-29/2.png)
 
 To make our policies useable down the pipeline we need to rebuild it into compatible JSON form (～￣▽￣)～
 

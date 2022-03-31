@@ -25,23 +25,23 @@ Getting logs for troubleshooting deployments and configurations driven by Intune
 Creating Azure file share is very simple!
 Go to [portal azure](https://portal.azure.com/#create/Microsoft.StorageAccount) and fil lout required boxes
 
-![smb1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB1.png)
+![smb1]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB1.png)
 
 After storage account is deployed navigate to **Overview** and then **File shares**:
 
-![smb2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB2.png)
+![smb2]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB2.png)
 
 Create new file share
 
-![smb3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB3.png)
+![smb3]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB3.png)
 
 Enter desired **name**, **quota** and click **create**
 
-![smb4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB4.png)
+![smb4]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB4.png)
 
 Go to created share and click on **connect**
 
-![smb5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB5.png)
+![smb5]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB5.png)
 
 You will get `Powershell` which performs connection test to the share over 445 port, saves credentials for it and permanently maps drive for you.
 In this solution permanent mapping is not necessary so you will need to make some modifications this script.
@@ -96,47 +96,47 @@ $LogFileError = "$OperatingFolder\IntuneSoftwareInstallError.log"
 
 #Custom exit
 function Exit-WithCode {
-	param
-	(
-		$exitcode
-	)
+ param
+ (
+  $exitcode
+ )
 
-	$host.SetShouldExit($exitcode)
+ $host.SetShouldExit($exitcode)
 }
 #######################################################################
 #Check for folder
 If (Test-Path -Path $OperatingFolder -PathType Container) {
-	Write-FileLog -FunctionStart -LogFile $LogFile
+ Write-FileLog -FunctionStart -LogFile $LogFile
 } Else {
-	New-Item -Path $OperatingFolder -ItemType Directory
-	Write-FileLog -Message "$OperatingFolder created" -LogFile $LogFile
+ New-Item -Path $OperatingFolder -ItemType Directory
+ Write-FileLog -Message "$OperatingFolder created" -LogFile $LogFile
 }
 
 #Process
 Write-FileLog -FunctionStart -LogFile $LogFile
 Try {
-	Write-FileLog -Message "Mounting network drive" -LogFile $LogFile
-	$connectTestResult = Test-NetConnection -ComputerName intunelogssmb.file.core.windows.net -Port 445
-	$Password = 'AutomaticallyGeneratedAccessKey'
-	$secret = ConvertTo-SecureString $Password -AsPlainText -Force
-	$psCred = New-Object System.Management.Automation.PSCredential -ArgumentList ('Azure\intunelogssmb', $secret)
-	if ($connectTestResult.TcpTestSucceeded) {
-		# Mount the drive
-		New-PSDrive -Name W -PSProvider FileSystem -Root "\\intunelogssmb.file.core.windows.net\logs" -Credential $psCred
-	} else {
-		Write-FileLog -Type Error -Message "Unable to reach the Azure storage account via port 445" -LogFileError $LogFileError
-		Exit-WithCode -exitcode $InstallFailCode
-	}
-	Write-FileLog -Message "Generating mdmdiagnostics" -LogFile $LogFile
-	MdmDiagnosticsTool.exe -area 'Autopilot;DeviceEnrollment;DeviceProvisioning;TPM' -zip "$OperatingFolder\mdmdiagnostics.zip"
-	Write-FileLog -Message "Uploading logs to file share" -LogFile $LogFile
-	Move-Item -Path "$OperatingFolder\mdmdiagnostics.zip" -Destination W:\ -Force
+ Write-FileLog -Message "Mounting network drive" -LogFile $LogFile
+ $connectTestResult = Test-NetConnection -ComputerName intunelogssmb.file.core.windows.net -Port 445
+ $Password = 'AutomaticallyGeneratedAccessKey'
+ $secret = ConvertTo-SecureString $Password -AsPlainText -Force
+ $psCred = New-Object System.Management.Automation.PSCredential -ArgumentList ('Azure\intunelogssmb', $secret)
+ if ($connectTestResult.TcpTestSucceeded) {
+  # Mount the drive
+  New-PSDrive -Name W -PSProvider FileSystem -Root "\\intunelogssmb.file.core.windows.net\logs" -Credential $psCred
+ } else {
+  Write-FileLog -Type Error -Message "Unable to reach the Azure storage account via port 445" -LogFileError $LogFileError
+  Exit-WithCode -exitcode $InstallFailCode
+ }
+ Write-FileLog -Message "Generating mdmdiagnostics" -LogFile $LogFile
+ MdmDiagnosticsTool.exe -area 'Autopilot;DeviceEnrollment;DeviceProvisioning;TPM' -zip "$OperatingFolder\mdmdiagnostics.zip"
+ Write-FileLog -Message "Uploading logs to file share" -LogFile $LogFile
+ Move-Item -Path "$OperatingFolder\mdmdiagnostics.zip" -Destination W:\ -Force
 } Catch {
-	Write-FileLog -Type Error -Message "Script ERROR" -LogFileError $LogFileError
-	$_ | Out-File -FilePath $LogFileError -Append -Encoding ASCII
-	Write-FileLog -Type Warn -Message "Script TERMINATION" -LogFileError $LogFileError
-	Write-FileLog -Type Warn -Message "Exitcode $InstallFailCode" -LogFileError $LogFileError
-	Exit-WithCode -exitcode $InstallFailCode
+ Write-FileLog -Type Error -Message "Script ERROR" -LogFileError $LogFileError
+ $_ | Out-File -FilePath $LogFileError -Append -Encoding ASCII
+ Write-FileLog -Type Warn -Message "Script TERMINATION" -LogFileError $LogFileError
+ Write-FileLog -Type Warn -Message "Exitcode $InstallFailCode" -LogFileError $LogFileError
+ Exit-WithCode -exitcode $InstallFailCode
 }
 ```
 
@@ -145,16 +145,16 @@ To test your script it's the best to use [Intune-App-Sandbox](https://github.com
 After your package successfully passed the test you can create deployment profile!
 Upload `.intunewin` file and enter install command
 
-![smb6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB6.png)
+![smb6]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB6.png)
 
 For detection let's check for our file in networkshare
 
-![smb7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB7.png)
+![smb7]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB7.png)
 
 Complete the rest of configuration and you are ready!
 To access uploaded logs just map this file share on your device 😎
 
-![smb8]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2021-02-24-SMB/SMB8.png)
+![smb8]({{ site.url }}/assets/images/posts/2021-02-24-SMB/SMB8.png)
 
 # Summary
 

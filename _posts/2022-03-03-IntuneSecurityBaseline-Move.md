@@ -41,29 +41,29 @@ You deploy security baselines to groups of users or devices in Intune, and the s
 
 To create a new baseline for your organization go to MEM portal
 
-![MDM1]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/1.png)
+![MDM1]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/1.png)
 
 Choose baseline area (let's stick with Win 10)
 
-![MDM2]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/2.png)
+![MDM2]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/2.png)
 
-![MDM3]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/3.png)
+![MDM3]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/3.png)
 
 Enter profile name, description and continue.
 
 For presentation purposes I've changed one setting and the rest is left as Microsoft recommends.
 
-![MDM4]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/4.png)
+![MDM4]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/4.png)
 
 Assign profile
 
-![MDM5]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/5.png)
+![MDM5]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/5.png)
 
 In summary you will see only the list of settings that are changed. So if you take baseline 'as is' then no setting will be listed in summary.
 
-![MDM6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/6.png)
+![MDM6]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/6.png)
 
-![MDM7]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-03-03-MDMSec/7.png)
+![MDM7]({{ site.url }}/assets/images/posts/2022-03-03-MDMSec/7.png)
 
 # Read profile settings
 
