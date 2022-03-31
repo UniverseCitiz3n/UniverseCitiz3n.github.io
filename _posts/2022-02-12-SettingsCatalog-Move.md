@@ -58,6 +58,8 @@ After you determine which request is the one that you are interested in now it i
 
 `Right click` on request and navigate to `Copy` and there you have it: `Copy as PowerShell` 🚀
 
+![DevTools6]({{ site.url }}{{ site.baseurl }}/assets/images/posts/2022-02-12-DevTools/6.png)
+
 # PowerShell Request
 
 From now on you are a Intune Microsoft Graph Master 😁
