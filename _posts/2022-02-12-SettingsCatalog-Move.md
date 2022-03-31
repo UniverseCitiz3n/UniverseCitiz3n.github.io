@@ -2,7 +2,7 @@
 title: How to easily move Settings Catalog profile
 categories:
 
-    - Intune
+    - Powershell
 
 tags:
 
