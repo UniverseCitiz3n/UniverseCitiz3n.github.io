@@ -133,6 +133,8 @@ To assign Azure AD group to the Azure AD device object you also need `device obj
 
 ![AP12]({{ site.url }}/assets/images/posts/2022-07-25/userap12.png)
 
+![AP21]({{ site.url }}/assets/images/posts/2022-07-25/userap21.png)
+
 ```powershell
 #Get Intune device details
 $APICallParams = @{
