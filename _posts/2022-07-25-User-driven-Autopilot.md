@@ -327,5 +327,8 @@ And that is it!
 
 # Summary
 
+Described process is a little bit risky due to possible latency of runbook schedule, Azure group membershoip sync, device sync with Intune, etc.
+
+But unless there is some other way to archive the result of building devices based on the user account it seems like to only option.
 
 See you in next! 😉 🧠
