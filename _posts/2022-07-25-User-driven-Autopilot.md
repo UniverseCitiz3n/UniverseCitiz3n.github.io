@@ -75,7 +75,7 @@ For this to happen you need **Azure Automation** instance and service principal 
 
 >NOTE: Service Princial doesn't have to have right to manage group membership. It just needs to be owner of the groups that it will change 😎
 
-For more info on how to create azure automation and how to user service principals visit my previous post -  [here](https://universecitiz3n.tech/powershell/Graph-Bitlocker/#prerequisites)
+For more info on how to create azure automation and how to use service principal visit my previous post -  [here](https://universecitiz3n.tech/powershell/Graph-Bitlocker/#prerequisites)
 
 To easily find only newly enrolled devices to Intune you can make a Graph call to `deviceManagement/managedDevices` with filter `enrolleddatetime`
 
