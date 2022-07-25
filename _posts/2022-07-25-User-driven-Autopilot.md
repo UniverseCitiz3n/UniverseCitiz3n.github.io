@@ -108,8 +108,6 @@ One for the users and another with resembling name for the devices where devices
 
 With just another API call we get user membership
 
-![AP14]({{ site.url }}/assets/images/posts/2022-07-25/userap14.png)
-
 ```powershell
 $APICallParams = @{
     Method  = 'GET'
@@ -120,7 +118,7 @@ $UserGroups = (Invoke-RestMethod @APICallParams).value
 $DeviceGroupsFromUserGroups = $UserGroups.Where({ $PSItem.displayName -like '*-Users_AzA' })
 ```
 
-Later on found groups names are transformed to device groups and to proceed further we need `group ID`
+Later on user group names are transformed to device groups and to proceed further we need `group object ID`
 
 ```powershell
 $DeviceGroup = "$($DeviceGroup.displayName.split('-')[0])-Computers"
