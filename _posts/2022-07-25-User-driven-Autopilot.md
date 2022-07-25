@@ -98,7 +98,7 @@ $WindowsAutopilotEnrolledDevices = (Invoke-RestMethod @APICallParams).value
 
 That way you will also get `userPrincipalName` of the user that started deployment!
 
-To make assignment of the configuration profiles based on the user I came up with design to have two groups:
+To make assignment of the configuration profiles based on the user I came up with a design to have two groups:
 
 ![AP19]({{ site.url }}/assets/images/posts/2022-07-25/userap19.png)
 
