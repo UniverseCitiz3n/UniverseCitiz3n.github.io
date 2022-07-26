@@ -130,7 +130,7 @@ $RequestSplat = @{
 $AADGroupObject = (Invoke-RestMethod @RequestSplat).value
 ```
 
-To assign Azure AD group to the Azure AD device object you also need `device object id` which should not be confused with `device id`
+To assign `Azure AD group` to the `Azure AD device object` you also need `device object id` which should not be confused with `device id`
 
 ![AP12]({{ site.url }}/assets/images/posts/2022-07-25/userap12.png)
 
