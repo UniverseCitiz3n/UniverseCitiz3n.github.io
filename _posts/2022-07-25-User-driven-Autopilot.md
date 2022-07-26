@@ -23,7 +23,7 @@ toc_label: Table of contents
 
 Hi there!
 
-A collage of mine came to me with question 'Can we somehow make the Windows Autopilot dependent on the user account that starts it?'.
+A colleague of mine came to me with question 'Can we somehow make the Windows Autopilot dependent on the user account that starts it?'.
 The reason behind that was to try ditching Windows Autopilot device group tags and latency of Azure AD dynamic groups.
 
 Immediately an idea came to my head 💡!
