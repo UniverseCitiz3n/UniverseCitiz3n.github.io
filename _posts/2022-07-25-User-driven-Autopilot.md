@@ -308,7 +308,7 @@ Device will wait around 25-30 minutes for domain join profile.
 
 ![AP2]({{ site.url }}/assets/images/posts/2022-07-25/userap2.png)
 
-When profile arrives and ODJ request is raised device is renamed.
+When profile arrives and ODJ request is raised then device is renamed.
 
 ![AP16]({{ site.url }}/assets/images/posts/2022-07-25/userap16.png)
 
