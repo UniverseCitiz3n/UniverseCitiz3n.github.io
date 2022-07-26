@@ -62,7 +62,7 @@ What if there was another way...
 
 # PowerShell + Graph API
 
-![HAADJ](https://oofhours.files.wordpress.com/2020/06/image-24.png)
+![HAADJ](https://oofhours.files.wordpress.com/2020/06/image-24.png)\n
 Source - [oofhours](https://oofhours.files.wordpress.com/2020/06/image-24.png)
 
 Based on that flowchart and my experience after device is enrolled to Intune configuration policies are applied and domain join profile with them.
