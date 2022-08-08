@@ -2,8 +2,6 @@
 main:
   - title: "Home"
     url: /
-  - title: "Autopilot"
-    url: /autopilot/
   - title: "About"
     url: /about/
   - title: "Events"
@@ -12,7 +10,7 @@ main:
     url: "https://leanpub.com/psconfbook3/"
   - title: "Tags"
     url: /tags/
-  - title: "Categories"
-    url: /categories/
+  - title: "Autopilot"
+    url: /autopilot/
   - title: "Terms & Conditions"
     url: /terms/
