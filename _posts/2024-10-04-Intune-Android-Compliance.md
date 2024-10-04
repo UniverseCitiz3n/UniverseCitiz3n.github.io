@@ -1,5 +1,5 @@
 ---
-title: Compliance Policy Issues - A Deep Dive
+title: Compliance Policy Issues - A Deep Dive 🔍
 categories:
     - Intune
 tags:
@@ -12,7 +12,6 @@ toc: true
 toc_label: Table of contents
 ---
 
-# Compliance Policy Issues: A Deep Dive 🔍
 
 Recently, I took on the challenge of improving our compliance policies, particularly by breaking them down into distinct configurations for better transparency. This setup aims to make it clear in views and reports which specific policy a device fails to meet. We also tailored email notifications to match each policy individually. However, along the way, some unexpected problems emerged that I want to share.
 
