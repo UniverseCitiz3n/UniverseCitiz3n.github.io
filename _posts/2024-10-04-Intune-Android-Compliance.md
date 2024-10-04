@@ -1,5 +1,5 @@
 ---
-title: Compliance Policy Issues: A Deep Dive
+title: Compliance Policy Issues - A Deep Dive
 categories:
     - Intune
 tags:
